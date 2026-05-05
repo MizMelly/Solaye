@@ -14,7 +14,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.4, ease: "easeOut" }}
           className="max-w-xl"
         >
 
@@ -22,7 +22,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.4, duration: 1.2, ease: "easeOut" }}
             style={{
               borderColor: "var(--color-border)",
               color: "var(--color-muted-foreground)",
@@ -38,9 +38,9 @@ const Hero = () => {
 
           {/* Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.6, duration: 1.5, ease: "easeOut" }}
             style={{ color: "var(--color-foreground)" }}
             className="text-[32px] md:text-[52px] leading-[1.1] font-serif tracking-tight"
           >
@@ -56,9 +56,9 @@ const Hero = () => {
 
           {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.8, duration: 1.5, ease: "easeOut" }}
             style={{ color: "var(--color-muted-foreground)" }}
             className="mt-7 text-[17px] leading-relaxed"
           >
@@ -68,9 +68,9 @@ const Hero = () => {
 
           {/* Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 1, duration: 1.5, ease: "easeOut" }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
             <button
@@ -99,30 +99,30 @@ const Hero = () => {
 
         {/* RIGHT IMAGE */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.6, ease: "easeOut" }}
           className="relative flex justify-center items-center"
         >
 
           {/* Floating background shapes */}
           <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 4 }}
+            animate={{ y: [0, -12, 0] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
             style={{ backgroundColor: "var(--color-accent)" }}
             className="absolute top-10 left-10 w-[90%] h-[90%] rounded-[42px]"
           ></motion.div>
 
           <motion.div
-            animate={{ y: [0, 15, 0] }}
-            transition={{ repeat: Infinity, duration: 5 }}
+            animate={{ y: [0, 18, 0] }}
+            transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
             style={{ backgroundColor: "var(--color-lilac)" }}
             className="absolute w-28 h-28 rounded-full -top-10 right-4 opacity-80"
           ></motion.div>
 
           <motion.div
-            animate={{ y: [0, -12, 0] }}
-            transition={{ repeat: Infinity, duration: 6 }}
+            animate={{ y: [0, -15, 0] }}
+            transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
             style={{ backgroundColor: "var(--color-sun)" }}
             className="absolute w-24 h-24 rounded-full -bottom-8 left-6 opacity-90"
           ></motion.div>
@@ -130,6 +130,7 @@ const Hero = () => {
           {/* IMAGE */}
           <motion.div
             whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.6 }}
             className="relative z-10 rounded-4xl p-4 shadow-xl"
             style={{ backgroundColor: "#f3e7d0" }}
           >
@@ -144,7 +145,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 1.2, duration: 1.2, ease: "easeOut" }}
             style={{
               backgroundColor: "var(--color-card)",
               color: "var(--color-foreground)",
