@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/Logo-P.png";
 
 const Navbar = () => {
@@ -9,21 +10,45 @@ const Navbar = () => {
 
       {/* Logo */}
       <div className="flex items-center gap-3">
-        <img
-          src={logo}
-          alt="Solayo logo"
-          className="h-5 md:h-8 w-auto object-contain"
-        />
+        <Link to="/">
+          <img
+            src={logo}
+            alt="Solayo logo"
+            className="h-5 md:h-8 w-auto object-contain"
+          />
+        </Link>
       </div>
 
       {/* Desktop Links */}
       <ul className="hidden md:flex items-center gap-8 font-medium text-sm text-[#4a4a4a]">
-        <li className="px-4 py-2 rounded-full bg-[#e6efdf] text-[#26422f] cursor-pointer hover:opacity-90 transition">
-          Home
+
+        <li>
+          <Link
+            to="/"
+            className="px-4 py-2 rounded-full bg-[#e6efdf] text-[#26422f] cursor-pointer hover:opacity-90 transition"
+          >
+            Home
+          </Link>
         </li>
-        <li className="cursor-pointer hover:opacity-70 transition">About</li>
-        <li className="cursor-pointer hover:opacity-70 transition">Resources</li>
-        <li className="cursor-pointer hover:opacity-70 transition">Contact</li>
+
+        <li>
+          <Link to="/about" className="hover:opacity-70 transition">
+            About
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/resources" className="hover:opacity-70 transition">
+            Resources
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/contact" className="hover:opacity-70 transition">
+            Contact
+          </Link>
+        </li>
+
       </ul>
 
       {/* CTA (Desktop) */}
@@ -48,14 +73,26 @@ const Navbar = () => {
       {open && (
         <div className="absolute top-full left-0 w-full bg-[#e9e6df] border-b border-[#e8e4db] px-6 py-6 flex flex-col gap-4 md:hidden">
 
-          <span className="font-medium text-[#26422f]">Home</span>
-          <span className="text-[#4a4a4a]">About</span>
-          <span className="text-[#4a4a4a]">Resources</span>
-          <span className="text-[#4a4a4a]">Contact</span>
+          <Link to="/" className="font-medium text-[#26422f]">
+            Home
+          </Link>
+
+          <Link to="/about" className="text-[#4a4a4a]">
+            About
+          </Link>
+
+          <Link to="/resources" className="text-[#4a4a4a]">
+            Resources
+          </Link>
+
+          <Link to="/contact" className="text-[#4a4a4a]">
+            Contact
+          </Link>
 
           <button className="mt-4 bg-[#3f6b4f] text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 font-medium text-sm">
             Start on WhatsApp →
           </button>
+
         </div>
       )}
 
