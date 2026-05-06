@@ -30,37 +30,37 @@ const Navbar = () => {
         </li>
         
         <li>
-          <Link to="/about" className="hover:text-(--color-foreground) transition">
+          <Link to="/health" className="hover:text-(--color-foreground) transition">
             Health
           </Link>
         </li>
         
         <li>
-          <Link to="/about" className="hover:text-(--color-foreground) transition">
+          <Link to="/wellness" className="hover:text-(--color-foreground) transition">
             Wellness
           </Link>
         </li>
         
         <li>
-          <Link to="/about" className="hover:text-(--color-foreground) transition">
+          <Link to="/community" className="hover:text-(--color-foreground) transition">
             Community
           </Link>
         </li>
         
         <li>
-          <Link to="/about" className="hover:text-(--color-foreground) transition">
+          <Link to="/impact" className="hover:text-(--color-foreground) transition">
             Impact
           </Link>
         </li>
 
         <li>
-          <Link to="/about" className="hover:text-(--color-foreground) transition">
+          <Link to="/AboutPage" className="hover:text-(--color-foreground) transition">
             About
           </Link>
         </li>
 
         <li>
-          <Link to="/resources" className="hover:text-(--color-foreground) transition">
+          <Link to="/partners" className="hover:text-(--color-foreground) transition">
             Partners
           </Link>
         </li>
@@ -103,27 +103,27 @@ const Navbar = () => {
             Home
           </Link>
 
-          <Link to="/about" className="hover:text-(--color-foreground) transition">
+          <Link to="/health" className="hover:text-(--color-foreground) transition">
             Health
           </Link>
         
-          <Link to="/about" className="hover:text-(--color-foreground) transition">
+          <Link to="/wellness" className="hover:text-(--color-foreground) transition">
             Wellness
           </Link>
         
-          <Link to="/about" className="hover:text-(--color-foreground) transition">
+          <Link to="/community" className="hover:text-(--color-foreground) transition">
             Community
           </Link>
         
-          <Link to="/about" className="hover:text-(--color-foreground) transition">
+          <Link to="/impact" className="hover:text-(--color-foreground) transition">
             Impact
           </Link>
 
-          <Link to="/about" className="hover:text-(--color-foreground) transition">
+          <Link to="/AboutPage" className="hover:text-(--color-foreground) transition">
             About
           </Link>
 
-          <Link to="/resources" className="hover:text-(--color-foreground) transition">
+          <Link to="/partners" className="hover:text-(--color-foreground) transition">
             Partners
           </Link>
 
