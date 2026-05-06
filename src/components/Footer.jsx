@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 pb-12 border-b border-[#e6e1d7]">
 
           {/* LEFT - BRAND */}
-          <div>
+          <div className="space-y-6">
             {/* Logo */}
             <div className="flex items-center gap-6">
         <img
