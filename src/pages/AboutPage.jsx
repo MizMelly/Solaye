@@ -158,7 +158,7 @@ const AboutPage = () => {
                 viewport={{ once: true }}
                 className="bg-[#f4f1eb] rounded-3xl border border-[#d9d3c7] p-6 md:p-8 flex gap-4 items-center"
               >
-                <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
+                <div className="w-14 h-14 rounded-full overflow-hidden shrink-0">
                   <img
                     src={member.image}
                     alt={member.name}
