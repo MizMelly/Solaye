@@ -100,7 +100,79 @@ const WellnessSection = () => {
           ))}
         </motion.div>
       </div>
+
+       {/* CTA SECTION */}
+<motion.div
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.9, ease: "easeOut" }}
+  className="mt-24"
+>
+  <div className="relative bg-[#5b3a82] rounded-[40px] px-8 md:px-16 py-16 overflow-hidden">
+
+    {/* Background Circles */}
+    <motion.div
+      initial={{ scale: 0, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 0.2 }}
+      transition={{ duration: 1 }}
+      className="absolute -bottom-20 -left-20 w-75 h-75 bg-[#e7d39a] rounded-full"
+    />
+
+    <motion.div
+      initial={{ scale: 0, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 0.2 }}
+      transition={{ duration: 1, delay: 0.2 }}
+      className="absolute -top-20 -right-10 w-62.5 h-62.5 bg-white rounded-full"
+    />
+
+    {/* Content */}
+    <div className="relative z-10 max-w-2xl">
+      
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="font-serif text-[clamp(2.2rem,4vw,3.2rem)] leading-[1.2] text-white mb-6"
+      >
+        Start your maternal care journey today.
+      </motion.h2>
+
+      <motion.p
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="text-white/80 text-[16px] mb-8"
+      >
+        It takes thirty seconds to start on WhatsApp.
+      </motion.p>
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="flex flex-wrap gap-4"
+      >
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          className="bg-[#e7e3dc] text-[#1f2937] px-6 py-3 rounded-full text-sm font-medium"
+        >
+          Get started on WhatsApp
+        </motion.button>
+
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          className="border border-white/40 text-white px-6 py-3 rounded-full text-sm font-medium"
+        >
+          About Solayo
+        </motion.button>
+      </motion.div>
+
+    </div>
+  </div>
+</motion.div>
     </section>
+   
   );
 };
 
