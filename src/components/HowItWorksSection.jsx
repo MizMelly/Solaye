@@ -4,106 +4,78 @@ import { motion } from "framer-motion";
 const steps = [
   {
     number: "01",
-    title: "Say hi on WhatsApp",
-    description: "Tap the link, share a few details, and meet Susan — your Solayo companion.",
+    title: "Join via WhatsApp",
+    description: "Open a chat — no app, no forms, no waiting room.",
   },
   {
     number: "02",
-    title: "Get your care plan",
-    description: "Personal check-ins, reminders and answers tuned to your stage of motherhood.",
+    title: "Get personal guidance",
+    description: "Stage-based support, triage and reminders tuned to you.",
   },
   {
     number: "03",
-    title: "Stay supported",
-    description: "Escalate to a real professional anytime, and join a community of mothers like you.",
+    title: "Access care, products & pros",
+    description: "Book consults, order wellness products, escalate when needed.",
   },
 ];
 
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
 const HowItWorksSection = () => {
   return (
-    <section style={{ backgroundColor: "#f7f1e3" }} className="px-6 md:px-16 py-24">
+    <section className="px-6 md:px-16 py-24 bg-[#f7f1e3]">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-[1fr_1.5fr] gap-16 items-start">
 
-      <div className="max-w-7xl mx-auto grid md:grid-cols-[1.1fr_1.4fr] gap-6 items-start">
-
-        {/* LEFT CONTENT (bigger + tighter) */}
+        {/* LEFT */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
         >
-          <p className="text-[10px] tracking-[0.3em] uppercase text-[#5e6f5a] mb-4">
+          <p className="text-xs tracking-[0.25em] uppercase text-(--color-muted-foreground) mb-6">
             How it works
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-serif leading-[1.05] text-[#1d2a1d] mb-3">
-            Three small <br />
-            steps. One big <br />
-            difference.
+          <h2 className="font-display text-[clamp(2.5rem,5vw,3.8rem)] leading-[1.1] text-(--color-foreground) mb-6">
+            Three simple <br /> steps.
           </h2>
 
-          <p className="text-sm md:text-base text-[#4f5a47] leading-snug">
-            No downloads. No forms. No waiting rooms. Just <br />
-            open WhatsApp.
+          <p className="text-[16px] leading-[1.7] text-(--color-muted-foreground) max-w-sm">
+            No downloads. No forms. Just open WhatsApp.
           </p>
         </motion.div>
 
-        {/* RIGHT STEPS (closer + animated) */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          className="space-y-3"
-        >
-          {steps.map((step) => (
+        {/* RIGHT */}
+        <div className="space-y-6">
+
+          {steps.map((step, i) => (
             <motion.div
               key={step.number}
-              variants={item}
-              whileHover={{
-                y: -6,
-                boxShadow: "0 18px 35px rgba(63, 89, 58, 0.15)",
-              }}
-              className="rounded-3xl bg-white border border-[#f0ebe5] p-5 shadow-sm transition-all duration-300"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.15, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="flex items-start gap-6 p-6 md:p-7 rounded-[28px] border border-(--color-border) bg-white/60 backdrop-blur-sm"
             >
-              <div className="flex gap-4">
+              {/* Number */}
+              <span className="font-display text-2xl text-(--color-primary)">
+                {step.number}
+              </span>
 
-                <span className="text-lg font-serif font-semibold text-[#3a634f]">
-                  {step.number}
-                </span>
+              {/* Content */}
+              <div>
+                <h3 className="font-display text-[20px] text-(--color-foreground) mb-1">
+                  {step.title}
+                </h3>
 
-                <div>
-                  <h3 className="text-lg font-serif text-[#1f2e1f] mb-1">
-                    {step.title}
-                  </h3>
-
-                  <p className="text-xs md:text-sm leading-relaxed text-[#556856]">
-                    {step.description}
-                  </p>
-                </div>
-
+                <p className="text-[15px] leading-[1.6] text-(--color-muted-foreground)">
+                  {step.description}
+                </p>
               </div>
+
             </motion.div>
           ))}
-        </motion.div>
+
+        </div>
 
       </div>
     </section>

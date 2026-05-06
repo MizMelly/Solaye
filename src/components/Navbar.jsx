@@ -6,92 +6,122 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full px-6 md:px-12 py-4 flex items-center justify-between border-b border-[#e8e4db] sticky top-0 z-50 backdrop-blur bg-[#e9e6df]/80">
+    <nav className="w-full px-6 md:px-12 py-4 flex items-center justify-between border-b border-(--color-border) sticky top-0 z-50 backdrop-blur bg-background/80">
 
       {/* Logo */}
-      <div className="flex items-center gap-3">
-        <Link to="/">
-          <img
-            src={logo}
-            alt="Solayo logo"
-            className="h-5 md:h-8 w-auto object-contain"
-          />
-        </Link>
-      </div>
+      <Link to="/" className="flex items-center gap-2">
+        <img
+          src={logo}
+          alt="Solayo logo"
+          className="h-7 md:h-8 w-auto object-contain"
+        />
+      </Link>
 
       {/* Desktop Links */}
-      <ul className="hidden md:flex items-center gap-8 font-medium text-sm text-[#4a4a4a]">
+      <ul className="hidden md:flex items-center gap-10 font-medium text-sm text-(--color-muted-foreground)">
 
         <li>
           <Link
             to="/"
-            className="px-4 py-2 rounded-full bg-[#e6efdf] text-[#26422f] cursor-pointer hover:opacity-90 transition"
+            className="px-4 py-2 rounded-full bg-[#EDE7F6] text-(--color-primary)"
           >
             Home
           </Link>
         </li>
+        
+        <li>
+          <Link to="/about" className="hover:text-(--color-foreground) transition">
+            Health
+          </Link>
+        </li>
+        
+        <li>
+          <Link to="/about" className="hover:text-(--color-foreground) transition">
+            Wellness
+          </Link>
+        </li>
+        
+        <li>
+          <Link to="/about" className="hover:text-(--color-foreground) transition">
+            Community
+          </Link>
+        </li>
+        
+        <li>
+          <Link to="/about" className="hover:text-(--color-foreground) transition">
+            Impact
+          </Link>
+        </li>
 
         <li>
-          <Link to="/about" className="hover:opacity-70 transition">
+          <Link to="/about" className="hover:text-(--color-foreground) transition">
             About
           </Link>
         </li>
 
         <li>
-          <Link to="/resources" className="hover:opacity-70 transition">
-            Resources
+          <Link to="/resources" className="hover:text-(--color-foreground) transition">
+            Partners
           </Link>
         </li>
 
         <li>
-          <Link to="/contact" className="hover:opacity-70 transition">
+          <Link to="/contact" className="hover:text-(--color-foreground) transition">
             Contact
           </Link>
         </li>
 
       </ul>
 
-      {/* CTA (Desktop) */}
+      {/* CTA */}
       <div className="hidden md:block">
-        <button className="bg-[#3f6b4f] text-white px-6 py-2 rounded-full flex items-center gap-2 hover:opacity-90 transition font-medium text-sm">
-          Start on WhatsApp
-          <span>→</span>
-        </button>
+        <a
+  href="https://wa.me/c/8131059543"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-(--color-primary) text-white px-6 py-2 rounded-full flex items-center gap-2 hover:opacity-90 transition font-medium text-sm shadow-sm"
+>
+  Start on WhatsApp →
+</a>
       </div>
 
-      {/* Hamburger (Mobile) */}
+      {/* Mobile Toggle */}
       <button
         onClick={() => setOpen(!open)}
         className="md:hidden flex flex-col gap-1"
       >
-        <span className="w-6 h-0.5 bg-[#26422f]"></span>
-        <span className="w-6 h-0.5 bg-[#26422f]"></span>
-        <span className="w-6 h-0.5 bg-[#26422f]"></span>
+        <span className="w-6 h-0.5 bg-(--color-foreground)"></span>
+        <span className="w-6 h-0.5 bg-(--color-foreground)"></span>
+        <span className="w-6 h-0.5 bg-(--color-foreground)"></span>
       </button>
 
       {/* Mobile Menu */}
       {open && (
-        <div className="absolute top-full left-0 w-full bg-[#e9e6df] border-b border-[#e8e4db] px-6 py-6 flex flex-col gap-4 md:hidden">
+        <div className="absolute top-full left-0 w-full bg-(--color-background) border-b border-(--color-border) px-6 py-6 flex flex-col gap-4 md:hidden">
 
-          <Link to="/" className="font-medium text-[#26422f]">
+          <Link to="/" className="font-medium text-(--color-primary)">
             Home
           </Link>
 
-          <Link to="/about" className="text-[#4a4a4a]">
+          <Link to="/about" className="text-(--color-muted-foreground)">
             About
           </Link>
 
-          <Link to="/resources" className="text-[#4a4a4a]">
+          <Link to="/resources" className="text-(--color-muted-foreground)">
             Resources
           </Link>
 
-          <Link to="/contact" className="text-[#4a4a4a]">
+          <Link to="/contact" className="text-(--color-muted-foreground)">
             Contact
           </Link>
-
-          <button className="mt-4 bg-[#3f6b4f] text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 font-medium text-sm">
-            Start on WhatsApp →
-          </button>
+<a
+  href="https://wa.me/c/8131059543"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-4 bg-(--color-primary) text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 font-medium text-sm hover:opacity-90 transition"
+>
+  Start on WhatsApp →
+</a>
 
         </div>
       )}
