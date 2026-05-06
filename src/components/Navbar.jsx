@@ -103,47 +103,33 @@ const Navbar = () => {
             Home
           </Link>
 
-          <li>
           <Link to="/about" className="hover:text-(--color-foreground) transition">
             Health
           </Link>
-        </li>
         
-        <li>
           <Link to="/about" className="hover:text-(--color-foreground) transition">
             Wellness
           </Link>
-        </li>
         
-        <li>
           <Link to="/about" className="hover:text-(--color-foreground) transition">
             Community
           </Link>
-        </li>
         
-        <li>
           <Link to="/about" className="hover:text-(--color-foreground) transition">
             Impact
           </Link>
-        </li>
 
-        <li>
           <Link to="/about" className="hover:text-(--color-foreground) transition">
             About
           </Link>
-        </li>
 
-        <li>
           <Link to="/resources" className="hover:text-(--color-foreground) transition">
             Partners
           </Link>
-        </li>
 
-        <li>
           <Link to="/contact" className="hover:text-(--color-foreground) transition">
             Contact
           </Link>
-        </li>
 <a
   href="https://wa.me/c/8131059543"
   target="_blank"
