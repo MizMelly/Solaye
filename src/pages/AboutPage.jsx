@@ -8,7 +8,7 @@ const AboutPage = () => {
       {/* STORY SECTION */}
       <section
   style={{ backgroundColor: "#f7f3ed" }}
-  className="px-6 md:px-16 py-24 md:py-32"
+  className="px-6 md:px-16 py-24 md:py-15"
 >
   <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
