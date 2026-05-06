@@ -8,7 +8,7 @@ const AboutPage = () => {
       {/* STORY SECTION */}
       <section
         style={{ backgroundColor: "#f7f3ed" }}
-        className="px-6 md:px-16 py-15 md:py-32"
+        className="px-6 md:px-16 py-15 md:py-15"
       >
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
@@ -265,6 +265,65 @@ const AboutPage = () => {
       ))}
 
     </div>
+  </div>
+</section>
+
+{/* =========================
+          PARTNER CTA SECTION
+      ========================= */}
+     <section className="bg-[#f7f3ed] px-6 md:px-16 pb-16 md:pb-24 -mt-10 md:-mt-20">
+  <div className="max-w-7xl mx-auto">
+
+    <motion.div
+      initial={{ opacity: 0, y: 60, scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{
+        duration: 0.9,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      viewport={{ once: true, amount: 0.3 }}
+      className="bg-[#e8daf8] border border-[#d8c8eb] rounded-3xl md:rounded-4xl px-6 sm:px-10 md:px-16 py-10 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8 shadow-sm"
+    >
+      {/* TEXT */}
+      <div className="max-w-3xl">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1] text-[#40284f] mb-5"
+        >
+          Want to partner with us?
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-sm sm:text-base md:text-xl leading-relaxed text-[#6b3f83]"
+        >
+          We collaborate with clinics, NGOs and researchers across Africa.
+          If our mission resonates, we'd love to talk.
+        </motion.p>
+      </div>
+
+      {/* BUTTON */}
+      <motion.a
+        href="/contact"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ duration: 0.4 }}
+        viewport={{ once: true }}
+        className="inline-flex items-center justify-center rounded-full bg-[#5f3788] px-7 sm:px-8 py-3 sm:py-4 text-sm md:text-base font-semibold text-white transition hover:bg-[#4f2d73] self-start md:self-center"
+      >
+        Get in touch
+      </motion.a>
+
+    </motion.div>
+
   </div>
 </section>
     </>
