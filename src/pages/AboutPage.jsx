@@ -25,8 +25,8 @@ const AboutPage = () => {
       </p>
 
       <h1 className="text-4xl md:text-5xl lg:text-[56px] font-serif leading-[1.1] text-[#1d2a1d] mb-8">
-        A trusted maternal health ecosystem.
-      </h1>
+        A trusted maternal health  <span className="italic text-(--color-primary)">ecosystem.
+      </span></h1>
 
       <p className="text-sm md:text-base leading-relaxed text-[#4f5a47]">
         Solayo Africa is building a trusted maternal health ecosystem designed to support
