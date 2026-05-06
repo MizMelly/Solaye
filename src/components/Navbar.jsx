@@ -54,7 +54,7 @@ const Navbar = () => {
         </li>
 
         <li>
-          <Link to="/AboutPage" className="hover:text-(--color-foreground) transition">
+          <Link to="/about" className="hover:text-(--color-foreground) transition">
             About
           </Link>
         </li>
@@ -119,7 +119,7 @@ const Navbar = () => {
             Impact
           </Link>
 
-          <Link to="/AboutPage" className="hover:text-(--color-foreground) transition">
+          <Link to="/about" className="hover:text-(--color-foreground) transition">
             About
           </Link>
 
