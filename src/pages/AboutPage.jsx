@@ -21,17 +21,16 @@ const AboutPage = () => {
       className="max-w-lg"
     >
       <p className="text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-[#5e6f5a] mb-6">
-        Our story
+        About Solayo Africa
       </p>
 
       <h1 className="text-4xl md:text-5xl lg:text-[56px] font-serif leading-[1.1] text-[#1d2a1d] mb-8">
-        A gentler door into maternal care.
+        A trusted maternal health ecosystem.
       </h1>
 
       <p className="text-sm md:text-base leading-relaxed text-[#4f5a47]">
-        We started Sòláyò after watching too many mothers our sisters, friends,
-        neighbours navigate pregnancy alone, with Google as their only midwife.
-        We knew there was a better way, hiding in plain sight: WhatsApp.
+        Solayo Africa is building a trusted maternal health ecosystem designed to support
+         women from pregnancy to postpartum through accessible, affordable and continuous care solutions.
       </p>
     </motion.div>
 
@@ -96,7 +95,7 @@ const AboutPage = () => {
   <div className="max-w-6xl mx-auto">
 
     {/* HEADER */}
-    
+
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
