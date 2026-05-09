@@ -149,63 +149,74 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* TEAM SECTION */}
-      <section className="bg-(--color-background) px-6 md:px-16 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto">
+     {/* TEAM SECTION */}
+<section className="bg-(--color-background) px-6 md:px-16 py-20 md:py-28">
+  <div className="max-w-7xl mx-auto">
 
-          <div className="mb-16 max-w-4xl">
+    <div className="mb-16 max-w-4xl">
 
-            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.35em] text-(--color-muted-foreground) mb-6">
-              The Team
+      <p className="text-[10px] md:text-[11px] uppercase tracking-[0.35em] text-(--color-muted-foreground) mb-6">
+        The Team
+      </p>
+
+      <h2 className="font-display text-3xl md:text-5xl text-(--color-foreground) mb-6 leading-[1.1]">
+        A small, thoughtful team of clinicians, builders, and mothers.
+      </h2>
+
+      <p className="text-[18px] leading-[1.8] text-(--color-muted-foreground) max-w-2xl">
+        Spread across Africa, united by one belief: maternal care should feel close, not clinical.
+      </p>
+    </div>
+
+    {/* UPDATED GRID */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      {team.map((member, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 + index * 0.1 }}
+          viewport={{ once: true }}
+          className={`
+            bg-white rounded-3xl border border-[#e6ddd0]
+            p-6 md:p-7 flex gap-4 items-start min-h-45
+
+            ${index === 6 ? "lg:col-start-2" : ""}
+          `}
+        >
+
+          {/* IMAGE */}
+          <div className="w-14 h-14 rounded-full overflow-hidden shrink-0">
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* TEXT */}
+          <div>
+            <h4 className="font-display text-[17px] md:text-[18px] text-(--color-foreground)">
+              {member.name}
+            </h4>
+
+            <p className="text-[10px] uppercase tracking-[0.18em] text-(--color-muted-foreground) mb-2">
+              {member.role}
             </p>
 
-            <h2 className="font-display text-3xl md:text-5xl text-(--color-foreground) mb-6 leading-[1.1]">
-              A small, thoughtful team of clinicians, builders, and mothers.
-            </h2>
-
-            <p className="text-[18px] leading-[1.8] text-(--color-muted-foreground) max-w-2xl">
-              Spread across Africa, united by one belief: maternal care should feel close, not clinical.
+            <p className="text-[14px] md:text-[15px] leading-[1.7] text-(--color-muted-foreground)">
+              {member.desc}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </motion.div>
+      ))}
 
-            {team.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 + index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-3xl border border-[#e6ddd0] p-6 md:p-8 flex gap-4 items-center"
-              >
-                <div className="w-14 h-14 rounded-full overflow-hidden shrink-0">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                <div>
-                  <h4 className="font-display text-lg text-(--color-foreground)">
-                    {member.name}
-                  </h4>
-
-                  <p className="text-[11px] uppercase tracking-wide text-(--color-muted-foreground) mb-1">
-                    {member.role}
-                  </p>
-
-                  <p className="text-[18px] leading-[1.8] text-(--color-muted-foreground)">
-                    {member.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-
-          </div>
-        </div>
-      </section>
+    </div>
+  </div>
+</section>
+     
 
       {/* PARTNER CTA */}
      <section className="bg-[#f7f3ed] px-6 md:px-16 pb-16 md:pb-24 -mt-10 md:-mt-20">
