@@ -2,51 +2,58 @@ import React from "react";
 import { motion } from "framer-motion";
 import storyImg from "../assets/about-care.jpg";
 
-import adaImage from "../assets/dammy potratit.png";
-import tundeImage from "../assets/15.png";
-import aminaImage from "../assets/16.png";
-import zaneleImage from "../assets/ekundayo.jpeg";
-import kwameImage from "../assets/kwame.jpg";
-import fatouImage from "../assets/fatou.jpg";
+import dammyImage from "../assets/Damilola Oladiipo.png";
+import georgeImage from "../assets/George Odiana.png";
+import theresaImage from "../assets/Theresa Oyewole.png";
+import oluwatoniImage from "../assets/Oluwatoni Ruth.jpg";
+import itunuImage from "../assets/Itunu Ijila.png";
+import oloruntobaImage from "../assets/Oloruntoba Goodness.jpeg";
+import edeboImage from "../assets/Edebo Ojo.jpg";
 
 const AboutPage = () => {
   const team = [
     {
-      image: adaImage,
-      name: "Adaeze Okonkwo",
-      role: "CO-FOUNDER & CEO",
-      desc: "Public health strategist with experience across clinics in Lagos and Nairobi.",
+      image: dammyImage,
+      name: "Dammy Oladiipo",
+      role: "CEO & FOUNDER",
+      desc: "Project Manager, 10+ years social enterprise development.",
     },
     {
-      image: tundeImage,
-      name: "Tunde Bakare",
+      image: georgeImage,
+      name: "George Odiana",
       role: "CO-FOUNDER & CTO",
-      desc: "Building calm, conversational AI that supports mothers in everyday moments of care.",
+      desc: "Tech innovator and product strategist.",
     },
     {
-      image: aminaImage,
-      name: "Dr. Amina Yusuf",
-      role: "MEDICAL DIRECTOR",
-      desc: "OB-GYN guiding every clinical protocol behind Solayo’s care system.",
+      image: theresaImage,
+      name: "Theresa Oyewole",
+      role: "COO - SOLAYO WELLNESS",
+      desc: "Community builder and medical marketing expert.",
     },
     {
-      image: zaneleImage,
-      name: "Zanele Dube",
-      role: "LEAD MIDWIFE",
-      desc: "20+ years supporting mothers from pregnancy through postpartum recovery.",
+      image: oluwatoniImage,
+      name: "Oluwatoni Ruth",
+      role: "COO - SOLAYO HEALTH",
+      desc: "General Medicine & Sexual Reproductive Health.",
     },
     {
-      image: kwameImage,
-      name: "Kwame Mensah",
-      role: "HEAD OF DESIGN",
-      desc: "Shapes the calm, thoughtful experience behind every Solayo interaction.",
+      image: itunuImage,
+      name: "Itunu Ijila",
+      role: "HEAD OF TECHNOLOGY - SOLAYO HEALTH",
+      desc: "AI Engineer & Machine Learning Specialist.",
     },
     {
-      image: fatouImage,
-      name: "Fatou Diallo",
-      role: "COMMUNITY LEAD",
-      desc: "Leads WhatsApp communities and listens to mothers across multiple countries.",
+      image: oloruntobaImage,
+      name: "Oloruntoba Goodness",
+      role: "NUTRITION SPECIALIST - SOLAYO WELLNESS",
+      desc: "Registered Nutritionist and Dietitian.",
     },
+    {
+      image: edeboImage,
+      name: "Edebo-Ojo Ammeh (RN)",
+      role: "COMMUNITY MANAGER - SOLAYO COMMUNITY",
+      desc: "Registered Nurse, with focus on sexaul reproductive health.",
+    }
   ];
 
   return (
