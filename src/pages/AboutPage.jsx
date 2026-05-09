@@ -65,18 +65,21 @@ const AboutPage = () => {
       viewport={{ once: true }}
       className="max-w-lg"
     >
-      <p className="text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-[#5e6f5a] mb-6">
+      {/* Eyebrow (match Hero style) */}
+      <p className="text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-(--color-muted-foreground) mb-6">
         About Solayo Africa
       </p>
 
-      <h1 className="text-4xl md:text-5xl lg:text-[56px] font-serif leading-[1.1] text-[#1d2a1d] mb-8">
+      {/* Heading (MATCH HERO FONT SYSTEM) */}
+      <h1 className="font-display text-3xl md:text-5xl lg:text-[56px] leading-[1.05] text-(--color-foreground) mb-8">
         A trusted maternal health{" "}
         <span className="italic text-(--color-primary)">
           ecosystem.
         </span>
       </h1>
 
-      <p className="text-sm md:text-base leading-relaxed text-[#4f5a47]">
+      {/* Body text (MATCH HERO TEXT SYSTEM) */}
+      <p className="text-[18px] leading-[1.8] text-(--color-muted-foreground)">
         Solayo Africa is building a trusted maternal health ecosystem designed to support women from pregnancy through postpartum with accessible, affordable, and continuous care.
       </p>
     </motion.div>
