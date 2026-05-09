@@ -1,6 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+// images
+import mamaPapImg from "../assets/mamapap.jpeg";
+import giftBoxImg from "../assets/afterbirth-package.jpeg";
+import calmMistImg from "../assets/calmist.jpeg";
+
 const WellnessSection = () => {
   const container = {
     hidden: {},
@@ -30,11 +35,29 @@ const WellnessSection = () => {
     },
   };
 
+  const products = [
+    {
+      name: "MamaPap™",
+      image: mamaPapImg,
+      color: "#d8c9ea",
+    },
+    {
+      name: "After Birth Gift Package",
+      image: giftBoxImg,
+      color: "#efe0a8",
+    },
+    {
+      name: "CalmMist™",
+      image: calmMistImg,
+      color: "#d8c9ea",
+    },
+  ];
+
   return (
-    <section className="bg-[#e7e3dc] py-20 px-6 md:px-16">
+    <section className="bg-(--color-background) py-16 md:py-24 px-6 md:px-16">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        
-        {/* Left Content */}
+
+        {/* LEFT CONTENT */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -43,136 +66,172 @@ const WellnessSection = () => {
         >
           <motion.p
             variants={fadeUp}
-            className="text-xs tracking-[0.25em] uppercase text-[#6b7280] mb-6"
+            className="text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-(--color-muted-foreground) mb-6"
           >
-            Solayo Wellness
+            SOLAYO WELLNESS
           </motion.p>
 
           <motion.h2
             variants={fadeUp}
-            className="font-serif text-[clamp(2.5rem,4.5vw,3.8rem)] leading-[1.1] text-[#1f2937] mb-6"
+            className="font-display text-3xl md:text-5xl leading-[1.05] text-(--color-foreground) mb-6"
           >
-            Supporting mothers with everyday solutions.
+            Supporting mothers with{" "}
+            <span className="italic text-(--color-primary)">
+              everyday solutions.
+            </span>
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="text-[16px] leading-[1.7] text-[#4b5563] mb-8 max-w-md"
+            className="text-[18px] leading-[1.8] text-(--color-muted-foreground) mb-8 max-w-lg"
           >
-            From nutrition to comfort, our wellness products are designed to
-            support women daily — through pregnancy, postpartum and beyond.
+            From nutrition to comfort, our wellness products are
+            thoughtfully designed to support women through pregnancy,
+            postpartum, and recovery.
           </motion.p>
 
           <motion.button
             variants={fadeUp}
-            whileHover={{ scale: 1.05 }}
-            className="bg-[#5b3a82] text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 transition"
+            whileHover={{ scale: 1.04 }}
+            className="px-7 py-3.5 rounded-full bg-(--color-primary) text-white font-medium text-sm shadow-sm hover:opacity-90 transition"
           >
             Shop wellness →
           </motion.button>
         </motion.div>
 
-        {/* Right Grid */}
+        {/* RIGHT GRID */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-2 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6"
         >
-          {[
-            { name: "MamaPap™", color: "#cfc3da" },
-            { name: "Mama Start", color: "#e7d39a" },
-            { name: "Mama Grow", color: "#cfc3da" },
-            { name: "CalmMist™", color: "#e7d39a" },
-          ].map((item, i) => (
+
+          {/* LARGE CARD */}
+          <motion.div
+            variants={cardAnim}
+            whileHover={{ y: -6 }}
+            className="sm:col-span-2 overflow-hidden rounded-4xl border border-[#ddd6cb] bg-white"
+          >
+            <div
+              style={{ backgroundColor: products[0].color }}
+              className="h-72 p-5 flex items-center justify-center"
+            >
+              <img
+                src={products[0].image}
+                alt={products[0].name}
+                className="w-full h-full object-contain object-center rounded-[24px]"
+              />
+            </div>
+
+            <div className="p-6">
+              <p className="font-display text-2xl text-(--color-foreground)">
+                {products[0].name}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* SMALL CARDS */}
+          {products.slice(1).map((item, i) => (
             <motion.div
               key={i}
               variants={cardAnim}
-              whileHover={{ y: -8, scale: 1.03 }}
-              className="rounded-4xl h-45 flex items-end p-6 cursor-pointer"
-              style={{ backgroundColor: item.color }}
+              whileHover={{ y: -6 }}
+              className="overflow-hidden rounded-4xl border border-[#ddd6cb] bg-white"
             >
-              <p className="font-serif text-lg text-[#1f2937]">
-                {item.name}
-              </p>
+              <div
+                style={{ backgroundColor: item.color }}
+                className="h-56 p-4 flex items-center justify-center"
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-contain object-center rounded-2xl"
+                />
+              </div>
+
+              <div className="p-5">
+                <p className="font-display text-lg text-(--color-foreground)">
+                  {item.name}
+                </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
       </div>
 
-       {/* CTA SECTION */}
-<motion.div
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.9, ease: "easeOut" }}
-  className="mt-24"
->
-  <div className="relative bg-[#5b3a82] rounded-[40px] px-8 md:px-16 py-16 overflow-hidden">
-
-    {/* Background Circles */}
-    <motion.div
-      initial={{ scale: 0, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 0.2 }}
-      transition={{ duration: 1 }}
-      className="absolute -bottom-20 -left-20 w-75 h-75 bg-[#e7d39a] rounded-full"
-    />
-
-    <motion.div
-      initial={{ scale: 0, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 0.2 }}
-      transition={{ duration: 1, delay: 0.2 }}
-      className="absolute -top-20 -right-10 w-62.5 h-62.5 bg-white rounded-full"
-    />
-
-    {/* Content */}
-    <div className="relative z-10 max-w-2xl">
-      
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="font-serif text-[clamp(2.2rem,4vw,3.2rem)] leading-[1.2] text-white mb-6"
-      >
-        Start your maternal care journey today.
-      </motion.h2>
-
-      <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.1 }}
-        className="text-white/80 text-[16px] mb-8"
-      >
-        It takes thirty seconds to start on WhatsApp.
-      </motion.p>
-
+      {/* CTA SECTION */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-        className="flex flex-wrap gap-4"
+        viewport={{ once: true }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        className="mt-24"
       >
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="bg-[#e7e3dc] text-[#1f2937] px-6 py-3 rounded-full text-sm font-medium"
-        >
-          Get started on WhatsApp
-        </motion.button>
+        <div className="relative bg-(--color-primary) rounded-[40px] px-8 md:px-16 py-16 overflow-hidden">
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="border border-white/40 text-white px-6 py-3 rounded-full text-sm font-medium"
-        >
-          About Solayo
-        </motion.button>
+          {/* Background Circles */}
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 0.18 }}
+            transition={{ duration: 1 }}
+            className="absolute -bottom-20 -left-20 w-72 h-72 bg-[#efe0a8] rounded-full"
+          />
+
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 0.15 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="absolute -top-20 -right-10 w-60 h-60 bg-white rounded-full"
+          />
+
+          {/* CONTENT */}
+          <div className="relative z-10 max-w-2xl">
+
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="font-display text-3xl md:text-5xl leading-[1.1] text-white mb-6"
+            >
+              Start your maternal care journey today.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-white/80 text-[18px] leading-[1.7] mb-8"
+            >
+              It takes less than a minute to begin on WhatsApp.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="flex flex-wrap gap-4"
+            >
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="bg-white text-(--color-foreground) px-7 py-3.5 rounded-full text-sm font-medium"
+              >
+                Get started on WhatsApp
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="border border-white/40 text-white px-7 py-3.5 rounded-full text-sm font-medium"
+              >
+                About Solayo
+              </motion.button>
+            </motion.div>
+
+          </div>
+        </div>
       </motion.div>
-
-    </div>
-  </div>
-</motion.div>
     </section>
-   
   );
 };
 
