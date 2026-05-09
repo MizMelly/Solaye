@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
 import Health from "./pages/Health";
 import Wellness from "./pages/Wellness";
+import ContactSection from "./pages/ContactSection";
 // import Resources from "./pages/Resources";
 // import Contact from "./pages/Contact";
 
@@ -25,6 +26,7 @@ function App() {
       <Route path="/about" element={<AboutPage />} /> 
       <Route path="/health" element={<Health />} />
       <Route path="/wellness" element={<Wellness />} />
+        <Route path="/contact" element={<ContactSection />} />
         {/* <Route path="/resources" element={<Resources />} /> */}
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
