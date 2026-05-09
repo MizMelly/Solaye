@@ -1,37 +1,30 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+// add your images here
+import mamaPapImg from "../assets/mamapap.jpeg";
+import giftBoxImg from "../assets/afterbirth-package.jpeg";
+import calmMistImg from "../assets/calmist.jpeg";
+
 const WellnessSection = () => {
   const products = [
     {
       title: "MamaPap™",
       desc: "Fortified nutrition blend for maternal health.",
       bg: "#d9caea",
+      image: mamaPapImg,
     },
     {
-      title: "Mama Start Pap",
-      desc: "Early-stage nutrition support.",
+      title: "After Birth Gift Package",
+      desc: "Thoughtfully curated recovery essentials for new mothers.",
       bg: "#efe0a8",
-    },
-    {
-      title: "Mama Grow Pap",
-      desc: "Advanced pregnancy and postpartum nourishment.",
-      bg: "#d9caea",
-    },
-    {
-      title: "Functional Cookies",
-      desc: "Wellness support solutions, on the go.",
-      bg: "#efe0a8",
+      image: giftBoxImg,
     },
     {
       title: "CalmMist™",
-      desc: "Comfort and relief support.",
+      desc: "Comfort and relief support for relaxation and recovery.",
       bg: "#d9caea",
-    },
-    {
-      title: "Curated Gift Boxes",
-      desc: "Thoughtful packages for new mothers.",
-      bg: "#efe0a8",
+      image: calmMistImg,
     },
   ];
 
@@ -86,20 +79,10 @@ const WellnessSection = () => {
               postpartum, and beyond.
             </motion.p>
 
-            <motion.button
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="mt-10 px-7 py-3.5 rounded-full bg-(--color-primary) text-white font-medium text-sm shadow-sm hover:opacity-90 transition"
-            >
-              Order now →
-            </motion.button>
           </div>
 
           {/* PRODUCTS */}
           <div>
-
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -121,18 +104,28 @@ const WellnessSection = () => {
                   className="overflow-hidden rounded-4xl border border-[#d8d1c7] bg-white"
                 >
 
-                  {/* TOP BLOCK */}
+                  {/* IMAGE AREA */}
                   <div
-                    style={{ backgroundColor: product.bg }}
-                    className="h-72 flex items-end px-7 pb-8"
-                  >
-                    <h3 className="font-display text-2xl leading-[1.15] text-(--color-foreground)">
-                      {product.title}
-                    </h3>
-                  </div>
+  style={{ backgroundColor: product.bg }}
+  className="h-72 flex items-center justify-center p-7"
+>
+  <div className="w-full h-full rounded-[28px] bg-white/40 backdrop-blur-sm overflow-hidden flex items-center justify-center shadow-sm">
+    
+    <img
+      src={product.image}
+      alt={product.title}
+      className="max-h-full max-w-full object-contain"
+    />
+
+  </div>
+</div>
 
                   {/* CONTENT */}
                   <div className="px-7 py-7">
+                    <h3 className="font-display text-2xl text-(--color-foreground) mb-3">
+                      {product.title}
+                    </h3>
+
                     <p className="text-[16px] leading-[1.7] text-(--color-muted-foreground)">
                       {product.desc}
                     </p>
@@ -177,7 +170,6 @@ const WellnessSection = () => {
 
           </div>
 
-          {/* BENEFITS GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {benefits.map((item, index) => (
               <motion.div
