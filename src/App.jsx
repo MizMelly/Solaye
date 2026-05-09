@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
 import Health from "./pages/Health";
+import Wellness from "./pages/Wellness";
 // import Resources from "./pages/Resources";
 // import Contact from "./pages/Contact";
 
@@ -23,6 +24,7 @@ function App() {
         {/* Uncomment when pages exist */}
       <Route path="/about" element={<AboutPage />} /> 
       <Route path="/health" element={<Health />} />
+      <Route path="/wellness" element={<Wellness />} />
         {/* <Route path="/resources" element={<Resources />} /> */}
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
