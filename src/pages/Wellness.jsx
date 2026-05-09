@@ -44,10 +44,10 @@ const WellnessSection = () => {
 
   return (
     <>
-      {/* WELLNESS HERO + PRODUCTS */}
-      <section className="bg-[#f4f1eb] px-6 md:px-16 py-16 md:py-24 overflow-hidden">
+      {/* HERO + PRODUCTS */}
+      <section className="px-6 md:px-16 py-16 md:py-24 bg-(--color-background)">
         <div className="max-w-7xl mx-auto">
-          
+
           {/* HERO */}
           <div className="max-w-5xl mb-24">
 
@@ -56,20 +56,20 @@ const WellnessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-[#5e6f5a] mb-6"
+              className="text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-(--color-muted-foreground) mb-6"
             >
-              Solayo Wellness
+              SOLAYO WELLNESS
             </motion.p>
-            
+
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl lg:text-[56px] font-serif leading-[1.1] text-[#1d2a1d] mb-8"
+              className="font-display text-3xl md:text-5xl leading-[1.05] text-(--color-foreground)"
             >
               Nourishing women through{" "}
-              <span className="italic text-[#6b3fa0]">
+              <span className="italic text-(--color-primary)">
                 every stage.
               </span>
             </motion.h1>
@@ -79,7 +79,7 @@ const WellnessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-sm md:text-base leading-relaxed text-[#4f5a47] max-w-2xl"
+              className="mt-7 max-w-3xl text-[18px] leading-[1.8] text-(--color-muted-foreground)"
             >
               Solayo Wellness develops nutrition-focused and comfort-driven
               products designed to support women through pregnancy,
@@ -91,7 +91,7 @@ const WellnessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
               viewport={{ once: true }}
-              className="mt-10 inline-flex items-center justify-center rounded-full bg-[#5f3788] px-8 py-4 text-white font-semibold hover:bg-[#4f2d73]"
+              className="mt-10 px-7 py-3.5 rounded-full bg-(--color-primary) text-white font-medium text-sm shadow-sm hover:opacity-90 transition"
             >
               Order now →
             </motion.button>
@@ -105,20 +105,20 @@ const WellnessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-[10px] uppercase tracking-[0.35em] text-[#7a766d] mb-6"
+              className="text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-(--color-muted-foreground) mb-8"
             >
-              Our Products
+              OUR PRODUCTS
             </motion.p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {products.map((product, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 35 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 + index * 0.1 }}
+                  transition={{ duration: 0.8, delay: index * 0.08 }}
                   viewport={{ once: true }}
-                  className="bg-[#f8f6f1] rounded-3xl border border-[#d9d3c7] overflow-hidden"
+                  className="overflow-hidden rounded-4xl border border-[#d8d1c7] bg-white"
                 >
 
                   {/* TOP BLOCK */}
@@ -126,14 +126,14 @@ const WellnessSection = () => {
                     style={{ backgroundColor: product.bg }}
                     className="h-72 flex items-end px-7 pb-8"
                   >
-                    <h3 className="text-lg md:text-xl font-serif text-[#1d2a1d]">
+                    <h3 className="font-display text-2xl leading-[1.15] text-(--color-foreground)">
                       {product.title}
                     </h3>
                   </div>
 
                   {/* CONTENT */}
-                  <div className="p-7">
-                    <p className="text-sm md:text-base text-[#4f5a47] leading-relaxed">
+                  <div className="px-7 py-7">
+                    <p className="text-[16px] leading-[1.7] text-(--color-muted-foreground)">
                       {product.desc}
                     </p>
                   </div>
@@ -146,20 +146,20 @@ const WellnessSection = () => {
         </div>
       </section>
 
-      {/* BENEFITS SECTION */}
-      <section className="bg-[#f4f1eb] px-6 md:px-16 py-16 md:py-24 border-t border-[#e5ded2]">
+      {/* BENEFITS */}
+      <section className="px-6 md:px-16 py-16 md:py-24 bg-(--color-background)">
         <div className="max-w-7xl mx-auto">
 
-          <div className="max-w-4xl mb-14">
-            
+          <div className="max-w-5xl mb-14">
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-[10px] uppercase tracking-[0.35em] text-[#7a766d] mb-6"
+              className="text-[10px] md:text-[11px] tracking-[0.35em] uppercase text-(--color-muted-foreground) mb-6"
             >
-              Benefits
+              BENEFITS
             </motion.p>
 
             <motion.h2
@@ -167,24 +167,28 @@ const WellnessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true }}
-              className="font-serif text-3xl md:text-5xl text-[#1d2a1d] leading-[1.1]"
+              className="font-display text-3xl md:text-5xl leading-[1.05] text-(--color-foreground)"
             >
-              Designed for the way mothers actually live.
+              Designed for the way mothers{" "}
+              <span className="italic text-(--color-primary)">
+                actually live.
+              </span>
             </motion.h2>
+
           </div>
 
           {/* BENEFITS GRID */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {benefits.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 + index * 0.1 }}
+                transition={{ duration: 0.8, delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="bg-[#f8f6f1] rounded-3xl border border-[#d9d3c7] px-7 py-8"
+                className="rounded-[28px] border border-[#d8d1c7] bg-white px-7 py-8"
               >
-                <p className="text-lg md:text-xl font-serif text-[#1d2a1d]">
+                <p className="font-display text-xl text-(--color-foreground)">
                   {item}
                 </p>
               </motion.div>
