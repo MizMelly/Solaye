@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // add your images here
@@ -79,6 +80,12 @@ const WellnessSection = () => {
               postpartum, and beyond.
             </motion.p>
 
+             <Link
+                to="/contact"
+                className="inline-flex items-center rounded-full bg-(--color-primary) px-7 py-3 text-sm md:text-base font-medium text-white hover:opacity-90 transition"
+              >
+                Order now →
+              </Link>
           </div>
 
           {/* PRODUCTS */}
