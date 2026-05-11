@@ -1,6 +1,9 @@
 import React from "react";
 import logo from "../assets/Logo-P.png";
 
+import { FaInstagram, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 const Footer = () => {
   return (
     <footer className="bg-[#f7f1e3] px-6 md:px-16 py-16 border-t border-[#e6e1d7]">
@@ -9,16 +12,15 @@ const Footer = () => {
         {/* TOP */}
         <div className="grid md:grid-cols-3 gap-12 pb-12 border-b border-[#e6e1d7]">
 
-          {/* LEFT - BRAND */}
+          {/* LEFT */}
           <div className="space-y-6">
-            {/* Logo */}
             <div className="flex items-center gap-6">
-        <img
-          src={logo}
-          alt="Solayo logo"
-          className="h-5 md:h-8 w-auto object-contain"
-        />
-      </div>
+              <img
+                src={logo}
+                alt="Solayo logo"
+                className="h-5 md:h-8 w-auto object-contain"
+              />
+            </div>
 
             <p className="text-sm leading-relaxed text-[#5b6653] max-w-sm">
               Trusted maternal care on WhatsApp. AI-guided,
@@ -47,9 +49,20 @@ const Footer = () => {
               Connect
             </p>
 
-            <ul className="space-y-2">
-              <li><a className="text-sm text-[#5b6653] hover:text-[#3f5f47] transition">WhatsApp Solayo</a></li>
-              <li><a className="text-sm text-[#5b6653] hover:text-[#3f5f47] transition">Join the Community</a></li>
+            <ul className="space-y-3">
+
+              <li>
+                <a className="text-sm text-[#5b6653] hover:text-[#3f5f47] transition">
+                  WhatsApp Solayo
+                </a>
+              </li>
+
+              <li>
+                <a className="text-sm text-[#5b6653] hover:text-[#3f5f47] transition">
+                  Join the Community
+                </a>
+              </li>
+
               <li>
                 <a
                   href="mailto:hello@solayo.africa"
@@ -57,6 +70,54 @@ const Footer = () => {
                 >
                   hello@solayo.africa
                 </a>
+              </li>
+
+              {/* SOCIAL MEDIA */}
+              <li className="pt-4 border-t border-[#e6e1d7]">
+
+                <div className="flex gap-4">
+
+                  {/* Instagram */}
+                  <a
+                    href="https://instagram.com/solayoafrica"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 flex items-center justify-center rounded-full border border-[#d6d0c5] text-[#5b6653] hover:text-white hover:bg-[#3f5f47] transition"
+                  >
+                    <FaInstagram size={16} />
+                  </a>
+
+                  {/* LinkedIn */}
+                  <a
+                    href="https://linkedin.com/company/solayoafrica"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 flex items-center justify-center rounded-full border border-[#d6d0c5] text-[#5b6653] hover:text-white hover:bg-[#3f5f47] transition"
+                  >
+                    <FaLinkedinIn size={16} />
+                  </a>
+
+                  {/* X / Twitter */}
+                  <a
+                    href="https://x.com/solayoafrica"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 flex items-center justify-center rounded-full border border-[#d6d0c5] text-[#5b6653] hover:text-white hover:bg-[#3f5f47] transition"
+                  >
+                    <FaXTwitter size={16} />
+                  </a>
+
+                  {/* Facebook */}
+                  <a
+                    href="https://facebook.com/solayoafrica"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 flex items-center justify-center rounded-full border border-[#d6d0c5] text-[#5b6653] hover:text-white hover:bg-[#3f5f47] transition"
+                  >
+                    <FaFacebookF size={16} />
+                  </a>
+
+                </div>
               </li>
             </ul>
           </div>
