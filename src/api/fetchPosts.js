@@ -5,10 +5,10 @@ export const fetchPosts = async () => {
     *[_type == "post"] | order(publishedAt desc){
       title,
       slug,
-      category,
       excerpt,
-      publishedAt,
-      mainImage
+      category,
+      mainImage,
+      publishedAt
     }
   `;
 
