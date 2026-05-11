@@ -22,18 +22,9 @@ const CommunitySection = () => {
   ];
 
   const stats = [
-    {
-      number: "25+",
-      label: "Outreach programs",
-    },
-    {
-      number: "100K+",
-      label: "People reached",
-    },
-    {
-      number: "3,800+",
-      label: "Community members",
-    },
+    { number: "25+", label: "Outreach programs" },
+    { number: "100K+", label: "People reached" },
+    { number: "3,800+", label: "Community members" },
   ];
 
   return (
@@ -41,14 +32,11 @@ const CommunitySection = () => {
       {/* HERO */}
       <section className="bg-(--color-background) px-6 md:px-16 py-16 md:py-24">
         <div className="max-w-7xl mx-auto">
-
-          <div className="max-w-5xl">
+          <div className="max-w-4xl">
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
               className="eyebrow mb-6"
             >
               SOLAYO COMMUNITY · OUTREACH
@@ -57,9 +45,7 @@ const CommunitySection = () => {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9 }}
-              viewport={{ once: true }}
-              className="display-xl max-w-4xl text-(--color-foreground)"
+              className="font-display text-[2.6rem] md:text-[3.8rem] leading-[1.05] text-(--color-foreground)"
             >
               Building trust through{" "}
               <span className="italic text-(--color-primary)">
@@ -70,27 +56,22 @@ const CommunitySection = () => {
             <motion.p
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="mt-8 max-w-3xl text-[18px] leading-[1.8] text-(--color-muted-foreground)"
+              className="mt-6 max-w-2xl text-[16px] md:text-[17px] leading-[1.7] text-(--color-muted-foreground)"
             >
-              Solayo Community drives awareness, education, and grassroots
-              engagement to ensure women receive early and continuous maternal
-              care support.
+              Solayo Community drives awareness, education, and grassroots engagement
+              to ensure women receive early and continuous maternal care support.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.2 }}
-              viewport={{ once: true }}
               className="mt-10"
             >
               <a
                 href="https://chat.whatsapp.com/L5TshSaNgfVHGuEXY5mvwk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full bg-(--color-primary) px-7 py-4 text-white text-sm font-medium hover:opacity-90 transition"
+                className="inline-flex items-center rounded-full bg-(--color-primary) px-6 py-3 text-white text-sm font-medium hover:opacity-90 transition"
               >
                 Join community →
               </a>
@@ -104,36 +85,24 @@ const CommunitySection = () => {
       <section className="bg-(--color-background) px-6 md:px-16 pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto">
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="eyebrow mb-8"
-          >
-            WHAT WE DO
-          </motion.p>
+          <p className="eyebrow mb-8">WHAT WE DO</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             {services.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: index * 0.08 }}
-                viewport={{ once: true }}
-                className="bg-[#f8f7f5] border border-[#ddd7e8] rounded-4xl p-9 md:p-10"
+                initial={{ opacity: 0, y: 20 }}
+                className="bg-white border border-[#ddd7e8] rounded-3xl p-7 md:p-8"
               >
-
-                <h3 className="font-display text-[30px] leading-[1.15] text-(--color-foreground)">
+                <h3 className="font-display text-[22px] md:text-[24px] leading-[1.2] text-(--color-foreground)">
                   {item.title}
                 </h3>
 
-                <p className="mt-5 text-[17px] leading-[1.8] text-(--color-muted-foreground) max-w-lg">
+                <p className="mt-4 text-[15px] md:text-[16px] leading-[1.6] text-(--color-muted-foreground)">
                   {item.desc}
                 </p>
-
               </motion.div>
             ))}
 
@@ -145,53 +114,34 @@ const CommunitySection = () => {
       <section className="bg-[#eadcf8] px-6 md:px-16 py-16 md:py-24">
         <div className="max-w-7xl mx-auto">
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="eyebrow mb-6 text-[#6b4b87]"
-          >
-            OUR IMPACT
-          </motion.p>
+          <p className="eyebrow mb-6 text-[#6b4b87]">OUR IMPACT</p>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
-            viewport={{ once: true }}
-            className="display-lg max-w-4xl text-[#3f2954]"
-          >
+          <h2 className="font-display text-[2.2rem] md:text-[3.2rem] leading-[1.1] text-[#3f2954]">
             Reach that compounds, month after month.
-          </motion.h2>
+          </h2>
 
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
 
             {stats.map((item, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: index * 0.08 }}
-                viewport={{ once: true }}
-                className="bg-[#f8f3fb] rounded-4xl px-7 py-8"
+                className="bg-[#f8f3fb] rounded-3xl px-6 py-7"
               >
-
-                <h3 className="font-display text-[52px] leading-none text-(--color-primary)">
+                <h3 className="font-display text-[40px] md:text-[48px] leading-none text-(--color-primary)">
                   {item.number}
                 </h3>
 
-                <p className="mt-4 text-[17px] text-[#6b5b79]">
+                <p className="mt-3 text-[15px] text-[#6b5b79]">
                   {item.label}
                 </p>
-
-              </motion.div>
+              </div>
             ))}
 
           </div>
         </div>
       </section>
-        <div className="w-full h-28 bg-white" />
+
+      <div className="w-full h-20 bg-[#fffdfb]" />
     </>
   );
 };

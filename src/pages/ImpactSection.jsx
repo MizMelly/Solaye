@@ -22,7 +22,7 @@ const ImpactSection = () => {
       {/* ================= IMPACT ================= */}
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-20 md:py-28">
 
-        <p className="eyebrow mb-6">
+        <p className="eyebrow mb-5">
           Impact
         </p>
 
@@ -31,7 +31,7 @@ const ImpactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="display-xl max-w-5xl text-balance"
+          className="font-display text-[2.4rem] md:text-[3.4rem] leading-[1.1] max-w-4xl"
         >
           Driving measurable maternal{" "}
           <span className="italic text-(--color-primary)">
@@ -40,7 +40,7 @@ const ImpactSection = () => {
         </motion.h2>
 
         {/* PROBLEM + APPROACH */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-14">
 
           {/* Problem */}
           <motion.div
@@ -48,13 +48,11 @@ const ImpactSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="card-soft p-8 md:p-10"
+            className="card-soft p-7 md:p-9"
           >
-            <p className="eyebrow mb-5">
-              The Problem
-            </p>
+            <p className="eyebrow mb-4">The Problem</p>
 
-            <p className="text-[18px] md:text-[20px] leading-[1.8] text-(--color-muted-foreground)">
+            <p className="text-[16px] md:text-[17px] leading-[1.7] text-(--color-muted-foreground)">
               Maternal healthcare gaps continue to affect millions of women due
               to limited access, poor nutrition, and lack of continuous support.
             </p>
@@ -66,13 +64,11 @@ const ImpactSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08 }}
             viewport={{ once: true }}
-            className="bg-[#f4efe5] border border-[#ddd7e8] rounded-4xl p-8 md:p-10"
+            className="bg-[#f4efe5] border border-[#ddd7e8] rounded-4xl p-7 md:p-9"
           >
-            <p className="eyebrow mb-5">
-              Our Approach
-            </p>
+            <p className="eyebrow mb-4">Our Approach</p>
 
-            <p className="text-[18px] md:text-[20px] leading-[1.8] text-(--color-muted-foreground)">
+            <p className="text-[16px] md:text-[17px] leading-[1.7] text-(--color-muted-foreground)">
               Solayo addresses these challenges by combining technology,
               products, and community engagement into one connected ecosystem.
             </p>
@@ -86,19 +82,13 @@ const ImpactSection = () => {
 
         <div className="max-w-7xl mx-auto px-6 md:px-16">
 
-          <p className="eyebrow text-[#6b4b87] mb-6">
+          <p className="eyebrow text-[#6b4b87] mb-5">
             Metrics
           </p>
 
-          <motion.h3
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="display-lg text-[#3f2954] mb-12"
-          >
+          <h3 className="font-display text-[2rem] md:text-[2.6rem] leading-[1.1] text-[#3f2954] mb-10">
             By the numbers.
-          </motion.h3>
+          </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
 
@@ -109,14 +99,14 @@ const ImpactSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.06 }}
                 viewport={{ once: true }}
-                className="bg-[#f8f3fb] rounded-3xl px-7 py-8"
+                className="bg-[#f8f3fb] rounded-3xl px-6 py-7"
               >
 
-                <h4 className="font-display text-[42px] md:text-[48px] leading-none tracking-[-0.03em] text-(--color-primary)">
+                <h4 className="font-display text-[32px] md:text-[36px] leading-none text-(--color-primary)">
                   {item.value}
                 </h4>
 
-                <p className="mt-4 text-[15px] md:text-[16px] leading-[1.7] text-[#6b5b79]">
+                <p className="mt-3 text-[14px] md:text-[15px] leading-[1.6] text-[#6b5b79]">
                   {item.label}
                 </p>
 
@@ -130,19 +120,13 @@ const ImpactSection = () => {
       {/* ================= SDG ================= */}
       <div className="max-w-7xl mx-auto px-6 md:px-16 py-20 md:py-28">
 
-        <p className="eyebrow mb-6">
+        <p className="eyebrow mb-5">
           SDG Alignment
         </p>
 
-        <motion.h3
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="display-lg max-w-4xl mb-14 text-balance"
-        >
+        <h3 className="font-display text-[2rem] md:text-[2.6rem] leading-[1.1] max-w-3xl mb-12">
           Aligned with the goals that matter most.
-        </motion.h3>
+        </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
@@ -153,14 +137,14 @@ const ImpactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.06 }}
               viewport={{ once: true }}
-              className="card-soft px-8 py-10 min-h-45 flex flex-col justify-center"
+              className="card-soft px-7 py-8 min-h-40 flex flex-col justify-center"
             >
 
-              <h4 className="font-display text-[42px] md:text-[48px] leading-none tracking-[-0.03em] text-(--color-primary)">
+              <h4 className="font-display text-[32px] md:text-[36px] text-(--color-primary)">
                 {sdg.title}
               </h4>
 
-              <p className="mt-5 text-[17px] leading-[1.7] text-(--color-muted-foreground)">
+              <p className="mt-4 text-[15px] leading-[1.6] text-(--color-muted-foreground)">
                 {sdg.subtitle}
               </p>
 
