@@ -3,11 +3,10 @@ import { motion } from "framer-motion";
 
 const ImpactSection = () => {
   const metrics = [
-    { value: "1,750+", label: "Active users" },
-    { value: "50+", label: "Consultations" },
-    { value: "₦200K+", label: "Consultation revenue" },
-    { value: "₦500K+", label: "Product sales" },
-    { value: "100K+", label: "Reach" },
+    { value: "17,500+", label: "Active users" },
+    { value: "50,000+", label: "Consultations" },
+    { value: "₦200,000+", label: "Consultation revenue" },
+    { value: "100,000+", label: "Reach" },
   ];
 
   const sdgs = [
