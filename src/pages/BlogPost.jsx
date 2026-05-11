@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { client, urlFor } from "../sanityClient";
+import { useParams, Link } from "react-router-dom";
+import { client } from "../sanityClient";
 import { PortableText } from "@portabletext/react";
+import { urlFor } from "../sanityClient";
+import { ArrowLeft, Clock3 } from "lucide-react";
 
 const BlogPost = () => {
   const { slug } = useParams();
+
   const [post, setPost] = useState(null);
 
   useEffect(() => {
@@ -22,57 +25,213 @@ const BlogPost = () => {
     client.fetch(query, { slug }).then(setPost);
   }, [slug]);
 
-  if (!post) return <p className="p-10">Loading...</p>;
-
-  const components = {
-    block: {
-      h1: ({ children }) => (
-        <h1 className="text-3xl font-bold mt-8 mb-4">{children}</h1>
-      ),
-      h2: ({ children }) => (
-        <h2 className="text-2xl font-semibold mt-6 mb-3">{children}</h2>
-      ),
-      normal: ({ children }) => (
-        <p className="text-gray-700 leading-7 mb-4">{children}</p>
-      ),
-    },
-
-    list: {
-      bullet: ({ children }) => (
-        <ul className="list-disc pl-6 mb-4">{children}</ul>
-      ),
-      number: ({ children }) => (
-        <ol className="list-decimal pl-6 mb-4">{children}</ol>
-      ),
-    },
-  };
+  if (!post) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-gray-500">
+        Loading article...
+      </div>
+    );
+  }
 
   return (
-    <article className="px-6 md:px-16 py-20 max-w-3xl mx-auto">
+    <article className="bg-[#fcfcf9] overflow-hidden">
 
-      <p className="text-xs uppercase tracking-widest text-gray-500 mb-3">
-        {post.category}
-      </p>
+      {/* HERO SECTION */}
+      <section className="relative border-b border-gray-200">
 
-      <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14 py-10 md:py-16">
 
-      <p className="text-sm text-gray-500 mb-6">
-        {new Date(post.publishedAt).toDateString()}
-      </p>
+          {/* Back Button */}
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition mb-10"
+          >
+            <ArrowLeft size={16} />
+            Back to Blog
+          </Link>
 
-      {post.mainImage && (
-        <img
-          src={urlFor(post.mainImage).width(900).url()}
-          className="w-full rounded-xl mb-8"
-          alt={post.title}
-        />
-      )}
+          {/* Top Grid */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-      <p className="text-lg text-gray-700 mb-8">
-        {post.excerpt}
-      </p>
+            {/* LEFT */}
+            <div className="max-w-2xl">
 
-      <PortableText value={post.content} components={components} />
+              <p className="mb-5 text-xs uppercase tracking-[0.35em] text-[#6f8b6b] font-medium">
+                {post.category}
+              </p>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] text-gray-900">
+                {post.title}
+              </h1>
+
+              <div className="flex items-center gap-4 mt-8 text-sm text-gray-500">
+
+                <span>
+                  {new Date(post.publishedAt).toDateString()}
+                </span>
+
+                <span className="w-1 h-1 rounded-full bg-gray-400"></span>
+
+                <span className="flex items-center gap-2">
+                  <Clock3 size={15} />
+                  5 min read
+                </span>
+
+              </div>
+
+              {/* EXCERPT */}
+              {post.excerpt && (
+                <p className="mt-8 text-lg md:text-xl leading-9 text-gray-600 max-w-xl">
+                  {post.excerpt}
+                </p>
+              )}
+
+            </div>
+
+            {/* RIGHT IMAGE */}
+            {post.mainImage?.asset && (
+              <div className="relative">
+
+                <img
+                  src={urlFor(post.mainImage).width(1800).url()}
+                  alt={post.title}
+                  className="
+                    w-full
+                    h-75
+                    sm:h-105
+                    lg:h-130
+                    object-cover
+                    rounded-[32px]
+                    shadow-xl
+                  "
+                />
+
+              </div>
+            )}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ARTICLE BODY */}
+      <section className="relative">
+
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-14 py-14 md:py-20">
+
+          <div className="grid lg:grid-cols-[220px_minmax(0,1fr)] gap-16">
+
+            {/* LEFT SIDEBAR */}
+            <aside className="hidden lg:block">
+
+              <div className="sticky top-28">
+
+                <p className="text-xs uppercase tracking-[0.3em] text-gray-400 mb-6">
+                  Article
+                </p>
+
+                <div className="space-y-5 text-sm text-gray-500">
+
+                  <div>
+                    <p className="text-gray-400 mb-1">Category</p>
+                    <p className="text-gray-800 font-medium">
+                      {post.category}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-gray-400 mb-1">Published</p>
+                    <p className="text-gray-800 font-medium">
+                      {new Date(post.publishedAt).toDateString()}
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-gray-400 mb-1">Reading Time</p>
+                    <p className="text-gray-800 font-medium">
+                      5 minutes
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </aside>
+
+            {/* MAIN CONTENT */}
+            <div className="min-w-0">
+
+              <div
+                className="
+                  prose
+                  prose-lg
+                  md:prose-xl
+                  max-w-none
+
+                  prose-headings:font-semibold
+                  prose-headings:text-gray-900
+
+                  prose-h2:text-3xl
+                  prose-h2:mt-16
+                  prose-h2:mb-6
+
+                  prose-h3:text-2xl
+                  prose-h3:mt-12
+                  prose-h3:mb-4
+
+                  prose-p:text-gray-700
+                  prose-p:leading-9
+
+                  prose-li:text-gray-700
+                  prose-li:leading-9
+
+                  prose-strong:text-gray-900
+
+                  prose-a:text-[#3f6b4f]
+                  prose-a:no-underline hover:prose-a:underline
+
+                  prose-blockquote:border-l-[#6f8b6b]
+                  prose-blockquote:text-gray-700
+
+                  prose-img:rounded-3xl
+                  prose-img:shadow-lg
+                "
+              >
+                <PortableText value={post.content} />
+              </div>
+
+              {/* AUTHOR BOX */}
+              <div className="mt-20 border-t border-gray-200 pt-10">
+
+                <div className="bg-[#f7f3ed] rounded-[28px] p-8 md:p-10">
+
+                  <p className="text-xs uppercase tracking-[0.3em] text-[#6f8b6b] mb-4">
+                    About Solayo Africa
+                  </p>
+
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                    Supporting maternal health across Africa.
+                  </h3>
+
+                  <p className="text-gray-600 leading-8 max-w-3xl">
+                    Solayo Africa provides accessible maternal healthcare,
+                    wellness products, and community support for women from
+                    pregnancy to postpartum through digital innovation,
+                    education, and grassroots outreach.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
 
     </article>
   );
