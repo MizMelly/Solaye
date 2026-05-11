@@ -13,7 +13,8 @@ import ImpactSection from "./pages/ImpactSection";
 import PartnersSection from "./pages/PartnersSection";
 import ContactSection from "./pages/ContactSection";
 
-
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 function App() {
   return (
@@ -25,15 +26,18 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* Uncomment when pages exist */}
-      <Route path="/about" element={<AboutPage />} /> 
-      <Route path="/health" element={<Health />} />
-      <Route path="/wellness" element={<Wellness />} />
-      <Route path="/community" element={<CommunitySection />} />
-      <Route path="/impact" element={<ImpactSection />} />
-      <Route path="/partners" element={<PartnersSection />} />
-      <Route path="/contact" element={<ContactSection />} />
-      
+
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/health" element={<Health />} />
+        <Route path="/wellness" element={<Wellness />} />
+        <Route path="/community" element={<CommunitySection />} />
+        <Route path="/impact" element={<ImpactSection />} />
+        <Route path="/partners" element={<PartnersSection />} />
+        <Route path="/contact" element={<ContactSection />} />
+
+        {/* BLOG ROUTES */}
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
       </Routes>
 
       <Footer />
