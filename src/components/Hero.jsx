@@ -34,13 +34,21 @@ const Hero = () => {
 
           {/* Buttons */}
           <div className="mt-10 flex flex-wrap gap-4">
-            <button className="px-7 py-3.5 rounded-full bg-(--color-primary) text-white font-medium text-sm shadow-sm hover:opacity-90 transition">
+             <a
+            href="https://wa.me/c/8131059543"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 bg-(--color-primary) text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 font-medium text-sm hover:opacity-90 transition"
+          >
               Get started on WhatsApp →
-            </button>
+            </a>
 
-            <button className="px-7 py-3.5 rounded-full border bg-white text-(--color-foreground) text-sm hover:opacity-90 transition">
-              Explore our solutions
-            </button>
+             <a
+              href="/health"
+              className="px-7 py-3.5 rounded-full border border-[#d8d1c7] bg-white text-(--color-foreground) text-sm hover:bg-[#f5f1eb] transition"
+            >
+              Explore Solayo Health
+            </a>
           </div>
         </motion.div>
 

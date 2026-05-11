@@ -5,7 +5,7 @@ const steps = [
   {
     number: "01",
     title: "Join via WhatsApp",
-    description: "Open a chat — no app, no forms, no waiting room.",
+    description: "Open a chat no app, no forms, no waiting room.",
   },
   {
     number: "02",

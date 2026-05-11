@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // images
 import mamaPapImg from "../assets/mamapap.jpeg";
@@ -90,13 +91,18 @@ const WellnessSection = () => {
             postpartum, and recovery.
           </motion.p>
 
-          <motion.button
+          {/* UPDATED BUTTON */}
+          <motion.div
             variants={fadeUp}
             whileHover={{ scale: 1.04 }}
-            className="px-7 py-3.5 rounded-full bg-(--color-primary) text-white font-medium text-sm shadow-sm hover:opacity-90 transition"
           >
-            Shop wellness →
-          </motion.button>
+            <Link
+              to="/wellness"
+              className="inline-flex px-7 py-3.5 rounded-full bg-(--color-primary) text-white font-medium text-sm shadow-sm hover:opacity-90 transition"
+            >
+              Shop wellness →
+            </Link>
+          </motion.div>
         </motion.div>
 
         {/* RIGHT GRID */}
@@ -213,19 +219,24 @@ const WellnessSection = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="flex flex-wrap gap-4"
             >
-              <motion.button
+              <motion.a
+                href="https://wa.me/c/8131059543"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 className="bg-white text-(--color-foreground) px-7 py-3.5 rounded-full text-sm font-medium"
               >
                 Get started on WhatsApp
-              </motion.button>
+              </motion.a>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                className="border border-white/40 text-white px-7 py-3.5 rounded-full text-sm font-medium"
-              >
-                About Solayo
-              </motion.button>
+              <motion.div whileHover={{ scale: 1.05 }}>
+                <Link
+                  to="/about"
+                  className="inline-flex border border-white/40 text-white px-7 py-3.5 rounded-full text-sm font-medium"
+                >
+                  About Solayo
+                </Link>
+              </motion.div>
             </motion.div>
 
           </div>

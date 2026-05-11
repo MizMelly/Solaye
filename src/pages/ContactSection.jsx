@@ -26,50 +26,71 @@ function ContactSection() {
 
           {/* CARDS */}
           <div className="mt-12 space-y-5">
+
+            {/* WHATSAPP */}
             <div className="flex items-center justify-between rounded-3xl border border-[#d9d3e8] bg-white p-6">
               <div>
                 <h3 className="font-display text-xl md:text-2xl text-(--color-foreground)">
                   WhatsApp Solayo
                 </h3>
+
                 <p className="mt-2 text-[18px] leading-[1.6] text-(--color-muted-foreground)">
                   The fastest way to meet Susan and try the experience.
                 </p>
               </div>
 
-              <button className="text-[16px] font-medium text-(--color-primary) hover:opacity-80">
+              <a
+                href="https://wa.me/c/8131059543"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[16px] font-medium text-(--color-primary) hover:opacity-80 transition"
+              >
                 Open chat →
-              </button>
+              </a>
             </div>
 
+            {/* COMMUNITY */}
             <div className="flex items-center justify-between rounded-3xl border border-[#d9d3e8] bg-white p-6">
               <div>
                 <h3 className="font-display text-xl md:text-2xl text-(--color-foreground)">
                   Join the community
                 </h3>
+
                 <p className="mt-2 text-[18px] leading-[1.6] text-(--color-muted-foreground)">
                   A circle of mothers, midwives and curious dads.
                 </p>
               </div>
 
-              <button className="text-[16px] font-medium text-(--color-primary) hover:opacity-80">
+              <a
+                href="https://chat.whatsapp.com/L5TshSaNgfVHGuEXY5mvwk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[16px] font-medium text-(--color-primary) hover:opacity-80 transition"
+              >
                 Join group →
-              </button>
+              </a>
             </div>
 
+            {/* EMAIL */}
             <div className="flex items-center justify-between rounded-3xl border border-[#d9d3e8] bg-white p-6">
               <div>
                 <h3 className="font-display text-xl md:text-2xl text-(--color-foreground)">
                   Email the team
                 </h3>
+
                 <p className="mt-2 text-[18px] leading-[1.6] text-(--color-muted-foreground)">
                   Press, partnerships, careers — we read every note.
                 </p>
               </div>
 
-              <button className="text-[16px] font-medium text-(--color-primary) hover:opacity-80">
+              <a
+                href="mailto:hello@solayo.africa"
+                className="text-[16px] font-medium text-(--color-primary) hover:opacity-80 transition"
+              >
                 hello@solayo.africa →
-              </button>
+              </a>
             </div>
+
           </div>
         </div>
 
@@ -159,6 +180,7 @@ function ContactSection() {
             <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-(--color-primary)">
               Headquarters
             </p>
+
             <p className="text-2xl font-display text-(--color-foreground)">
               Lagos, Nigeria
             </p>
@@ -168,6 +190,7 @@ function ContactSection() {
             <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-(--color-primary)">
               Hours
             </p>
+
             <div className="space-y-2 text-2xl font-display text-(--color-foreground)">
               <p>Solayo on WhatsApp: 24/7</p>
               <p>Team replies: Mon–Fri, 9am–6pm WAT</p>
@@ -178,6 +201,7 @@ function ContactSection() {
             <p className="mb-5 text-[10px] uppercase tracking-[0.35em] text-(--color-primary)">
               For urgent care
             </p>
+
             <p className="text-2xl font-display text-(--color-foreground)">
               Solayo is not a substitute for emergency services. Please contact your local provider.
             </p>

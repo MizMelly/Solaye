@@ -86,9 +86,14 @@ const CommunitySection = () => {
               viewport={{ once: true }}
               className="mt-10"
             >
-              <button className="rounded-full bg-(--color-primary) px-7 py-4 text-white text-sm font-medium hover:opacity-90 transition">
-                Partner with us →
-              </button>
+              <a
+                href="https://chat.whatsapp.com/L5TshSaNgfVHGuEXY5mvwk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full bg-(--color-primary) px-7 py-4 text-white text-sm font-medium hover:opacity-90 transition"
+              >
+                Join community →
+              </a>
             </motion.div>
 
           </div>
