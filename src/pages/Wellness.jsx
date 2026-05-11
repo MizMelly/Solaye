@@ -80,12 +80,20 @@ const WellnessSection = () => {
               postpartum, and beyond.
             </motion.p>
 
-             <Link
-                to="/contact"
-                className="inline-flex items-center rounded-full bg-(--color-primary) px-7 py-3 text-sm md:text-base font-medium text-white hover:opacity-90 transition"
-              >
-                Order now →
-              </Link>
+            <motion.div
+                          initial={{ opacity: 0, y: 24 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 1, delay: 0.4 }}
+                          className="mt-10"
+                        >
+                          <Link
+                            to="/contact"
+                            className="inline-flex items-center rounded-full bg-(--color-primary) px-7 py-3 text-sm md:text-base font-medium text-white hover:opacity-90 transition"
+                          >
+                            Order now →
+                          </Link>
+                        </motion.div>
+    
           </div>
 
           {/* PRODUCTS */}
