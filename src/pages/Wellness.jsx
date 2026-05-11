@@ -189,6 +189,8 @@ const WellnessSection = () => {
 
         </div>
       </section>
+
+        <div className="w-full h-28 bg-white" />
     </>
   );
 };

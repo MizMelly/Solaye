@@ -191,6 +191,7 @@ const CommunitySection = () => {
           </div>
         </div>
       </section>
+        <div className="w-full h-28 bg-white" />
     </>
   );
 };
