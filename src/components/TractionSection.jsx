@@ -3,12 +3,11 @@ import { motion } from "framer-motion";
 
 const TractionSection = () => {
   const stats = [
-    { value: 1750, suffix: "+", label: "Maternal platform users" },
-    { value: 3800, suffix: "+", label: "Community members" },
-    { value: 25, suffix: "+", label: "Outreach programs" },
-    { value: 100000, suffix: "+", label: "People reached" },
-    { value: 500000, prefix: "₦", suffix: "+", label: "Product sales (2 months)" },
-    { value: 50, suffix: "+", label: "Consultations completed" },
+    { value: 17500, suffix: "+", label: "Maternal platform users" },
+    { value: 7500, suffix: "+", label: "Community members" },
+    { value: 72, suffix: "+", label: "Outreach programs" },
+    { value: 183000, suffix: "+", label: "People reached" },
+    { value: 1500, suffix: "+", label: "Consultations completed" },
   ];
 
   const container = {
