@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Ecosystem = () => {
-
   const container = {
     hidden: {},
     show: {
@@ -31,11 +30,32 @@ const Ecosystem = () => {
     },
   };
 
+  const cards = [
+    {
+      tag: "PLATFORM",
+      title: "Solayo Health",
+      desc: "Digital maternal care powered by AI, consultations and referrals right on WhatsApp.",
+      link: "/health",
+    },
+    {
+      tag: "PRODUCTS",
+      title: "Solayo Wellness",
+      desc: "Nutrition and comfort products designed for maternal health and everyday nourishment.",
+      link: "/wellness",
+    },
+    {
+      tag: "OUTREACH",
+      title: "Solayo Community",
+      desc: "Grassroots outreach, education and support programs that meet women where they are.",
+      link: "/community",
+    },
+  ];
+
   return (
     <section className="px-6 md:px-16 py-20 bg-(--color-background)">
       <div className="max-w-7xl mx-auto">
 
-        {/* Top + Heading + Text */}
+        {/* Heading */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -60,8 +80,7 @@ const Ecosystem = () => {
             variants={fadeUp}
             className="mt-6 text-[17px] leading-[1.7] text-(--color-muted-foreground) max-w-2xl"
           >
-            Solayo Africa supports women from pregnancy to postpartum through three connected
-            solutions designed to make care accessible, continuous and affordable.
+            Solayo Africa supports women from pregnancy to postpartum through three connected solutions.
           </motion.p>
         </motion.div>
 
@@ -73,29 +92,12 @@ const Ecosystem = () => {
           viewport={{ once: true }}
           className="mt-14 grid md:grid-cols-3 gap-8"
         >
-
-          {[
-            {
-              tag: "PLATFORM",
-              title: "Solayo Health",
-              desc: "Digital maternal care powered by AI, consultations and referrals — right on WhatsApp.",
-            },
-            {
-              tag: "PRODUCTS",
-              title: "Solayo Wellness",
-              desc: "Nutrition and comfort products designed for maternal health and everyday nourishment.",
-            },
-            {
-              tag: "OUTREACH",
-              title: "Solayo Community",
-              desc: "Grassroots outreach, education and support programs that meet women where they are.",
-            },
-          ].map((item, i) => (
+          {cards.map((item, i) => (
             <motion.div
               key={i}
               variants={cardAnim}
               whileHover={{ y: -10, scale: 1.03 }}
-              className="p-8 rounded-[24px] border bg-white/70 backdrop-blur cursor-pointer transition"
+              className="p-8 rounded-[24px] border bg-white/70 backdrop-blur transition"
             >
               <p className="text-xs tracking-[0.25em] text-(--color-primary) mb-4">
                 {item.tag}
@@ -109,12 +111,14 @@ const Ecosystem = () => {
                 {item.desc}
               </p>
 
-              <button className="text-(--color-primary) text-sm font-medium hover:underline">
+              <a
+                href={item.link}
+                className="text-(--color-primary) text-sm font-medium hover:underline"
+              >
                 Learn more →
-              </button>
+              </a>
             </motion.div>
           ))}
-
         </motion.div>
       </div>
     </section>

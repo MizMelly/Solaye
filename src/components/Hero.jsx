@@ -32,24 +32,26 @@ const Hero = () => {
             platforms they already use.
           </p>
 
-          {/* Buttons */}
-          <div className="mt-10 flex flex-wrap gap-4">
-             <a
-            href="https://wa.me/c/8131059543"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 bg-(--color-primary) text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 font-medium text-sm hover:opacity-90 transition"
-          >
-              Get started on WhatsApp →
-            </a>
+         {/* Buttons */}
+<div className="mt-10 flex flex-wrap items-center gap-4">
 
-             <a
-              href="/health"
-              className="px-7 py-3.5 rounded-full border border-[#d8d1c7] bg-white text-(--color-foreground) text-sm hover:bg-[#f5f1eb] transition"
-            >
-              Explore Solayo Health
-            </a>
-          </div>
+  <a
+    href="https://wa.me/c/8131059543"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center justify-center rounded-full bg-(--color-primary) px-7 py-3.5 text-sm font-medium text-white shadow-sm hover:opacity-90 transition"
+  >
+    Get started on WhatsApp →
+  </a>
+
+  <a
+    href="/health"
+    className="inline-flex items-center justify-center rounded-full border border-(--color-border) bg-white px-7 py-3.5 text-sm font-medium text-(--color-foreground) hover:bg-(--color-muted) transition"
+  >
+    Explore Solayo Health
+  </a>
+
+</div>
         </motion.div>
 
         {/* RIGHT */}
