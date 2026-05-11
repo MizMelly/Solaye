@@ -8,11 +8,12 @@ import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
 import Health from "./pages/Health";
 import Wellness from "./pages/Wellness";
+import CommunitySection from "./pages/CommunitySection";
+import ImpactSection from "./pages/ImpactSection";
 import PartnersSection from "./pages/PartnersSection";
 import ContactSection from "./pages/ContactSection";
 
-// import Resources from "./pages/Resources";
-// import Contact from "./pages/Contact";
+
 
 function App() {
   return (
@@ -28,10 +29,11 @@ function App() {
       <Route path="/about" element={<AboutPage />} /> 
       <Route path="/health" element={<Health />} />
       <Route path="/wellness" element={<Wellness />} />
+      <Route path="/community" element={<CommunitySection />} />
+      <Route path="/impact" element={<ImpactSection />} />
       <Route path="/partners" element={<PartnersSection />} />
       <Route path="/contact" element={<ContactSection />} />
-        {/* <Route path="/resources" element={<Resources />} /> */}
-        {/* <Route path="/contact" element={<Contact />} /> */}
+      
       </Routes>
 
       <Footer />
