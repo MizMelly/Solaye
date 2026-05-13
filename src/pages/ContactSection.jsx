@@ -20,7 +20,7 @@ function ContactSection() {
 
             <p className="mt-8 max-w-xl text-[18px] leading-[1.8] text-(--color-muted-foreground)">
               Whether you're a mother with a question, a clinician who shares our mission,
-              or a journalist telling the story of African maternal health — we'd love to hear from you.
+              or a journalist telling the story of African maternal health we'd love to hear from you.
             </p>
           </div>
 
@@ -159,7 +159,7 @@ function ContactSection() {
             {/* BUTTON */}
             <button
               type="submit"
-              className="flex h-16 w-full items-center justify-center rounded-full bg-(--color-primary) text-lg font-semibold text-white transition hover:opacity-90"
+              className="flex h-16 w-full items-center justify-center bg-(--color-primary) text-lg font-semibold text-white transition hover:opacity-90"
             >
               Send message
             </button>

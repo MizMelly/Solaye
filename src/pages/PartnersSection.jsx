@@ -69,7 +69,7 @@ function PartnersSection() {
       </div>
 
       {/* CTA SECTION */}
-      <div className="mt-20 rounded-[32px] bg-[#ddd0ee] px-8 py-12 md:px-14 md:py-14">
+      <div className="mt-20 bg-[#ddd0ee] px-8 py-12 md:px-14 md:py-14">
 
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
 
@@ -89,7 +89,7 @@ function PartnersSection() {
 
           {/* BUTTON */}
           <div>
-            <button className="rounded-full bg-[#5d2d91] px-7 py-3.5 text-sm font-medium text-white transition hover:opacity-90">
+            <button className="bg-[#5d2d91] px-7 py-3.5 text-sm font-medium text-white transition hover:opacity-90">
               Get in touch →
             </button>
           </div>

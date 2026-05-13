@@ -71,7 +71,7 @@ const CommunitySection = () => {
                 href="https://chat.whatsapp.com/L5TshSaNgfVHGuEXY5mvwk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full bg-(--color-primary) px-6 py-3 text-white text-sm font-medium hover:opacity-90 transition"
+                className="inline-flex items-center bg-(--color-primary) px-6 py-3 text-white text-sm font-medium hover:opacity-90 transition"
               >
                 Join community →
               </a>

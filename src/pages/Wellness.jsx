@@ -88,7 +88,7 @@ const WellnessSection = () => {
                         >
                           <Link
                             to="/contact"
-                            className="inline-flex items-center rounded-full bg-(--color-primary) px-7 py-3 text-sm md:text-base font-medium text-white hover:opacity-90 transition"
+                            className="inline-flex items-center bg-(--color-primary) px-7 py-3 text-sm md:text-base font-medium text-white hover:opacity-90 transition"
                           >
                             Order now →
                           </Link>
@@ -184,23 +184,24 @@ const WellnessSection = () => {
             </motion.h2>
 
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {benefits.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.08 }}
-                viewport={{ once: true }}
-                className="rounded-[28px] border border-[#d8d1c7] bg-white px-7 py-8"
-              >
-                <p className="font-display text-xl text-(--color-foreground)">
-                  {item}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+  {benefits.map((item, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: index * 0.08 }}
+      viewport={{ once: true }}
+      className="border border-[#d8d1c7] bg-(--color-primary) text-white px-7 py-8"
+    >
+      
+      {/* main text */}
+      <p className="font-sans text-[16px] leading-[1.6] font-medium text-white">
+        {item}
+      </p>
+    </motion.div>
+  ))}
+</div>
 
         </div>
       </section>

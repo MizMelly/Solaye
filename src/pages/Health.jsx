@@ -97,7 +97,7 @@ const SolayoHealthHero = () => {
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center rounded-full bg-(--color-primary) px-7 py-3 text-sm md:text-base font-medium text-white hover:opacity-90 transition"
+                className="inline-flex items-center bg-(--color-primary) px-7 py-3 text-sm md:text-base font-medium text-white hover:opacity-90 transition"
               >
                 Start using Solayo Health →
               </Link>
@@ -150,7 +150,7 @@ const SolayoHealthHero = () => {
       </section>
 
       {/* HOW IT WORKS + WHO IT'S FOR */}
-      <section className="bg-(--color-background) px-6 md:px-16 py-20 md:py-24 border-t border-[#e6ddd0]">
+      <section className="bg-[#cfc3da] px-6 md:px-16 py-20 md:py-24 border-t border-[#e6ddd0]">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16">
 
           {/* HOW IT WORKS */}

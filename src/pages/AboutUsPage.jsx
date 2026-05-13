@@ -98,7 +98,7 @@ const AboutPage = () => {
       viewport={{ once: true }}
       className="flex justify-center md:justify-end"
     >
-      <div className="w-full max-w-105 rounded-3xl overflow-hidden shadow-md">
+      <div className="w-full max-w-105 overflow-hidden shadow-md">
         <img
           src={storyImg}
           alt="Mother with newborn"
@@ -134,7 +134,7 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 + index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl border border-[#e6ddd0] p-8 md:p-10"
+              className="bg-white border border-[#e6ddd0] p-8 md:p-10"
             >
               <h3 className="text-lg md:text-xl font-display text-(--color-foreground) mb-4">
                 {card.title}
@@ -187,7 +187,7 @@ const AboutPage = () => {
         >
 
           {/* IMAGE */}
-          <div className="w-14 h-14 rounded-full overflow-hidden shrink-0">
+          <div className="w-14 h-14 overflow-hidden shrink-0">
             <img
               src={member.image}
               alt={member.name}
@@ -244,7 +244,7 @@ const AboutPage = () => {
 
       <a
         href="/contact"
-        className="inline-flex items-center justify-center rounded-full bg-[#5f3788] px-8 py-4 text-white font-semibold hover:bg-[#4f2d73] transition"
+        className="inline-flex items-center justify-center bg-[#5f3788] px-8 py-4 text-white font-semibold hover:bg-[#4f2d73] transition"
       >
         Get in touch
       </a>
