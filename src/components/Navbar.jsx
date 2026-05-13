@@ -42,10 +42,8 @@ const Navbar = () => {
       {/* ================= DESKTOP ================= */}
       <div className="hidden md:flex items-center justify-between px-10 lg:px-16 h-24">
 
-        {/* LEFT */}
         <div className="flex items-center">
 
-          {/* Logo */}
           <NavLink
             to="/"
             className="pr-8 mr-8 border-r border-[#ddd7e8] shrink-0"
@@ -57,21 +55,18 @@ const Navbar = () => {
             />
           </NavLink>
 
-          {/* Nav Links */}
           <div className="flex items-center gap-2">
 
             {groupedLinks.map((group) => (
               <div key={group.title} className="relative">
 
-                {/* BUTTON */}
                 <button
                   onClick={() => toggleDropdown(group.title)}
-                  className="flex items-center gap-2 px-5 py-3 text-[15px] font-medium tracking-wide text-(--color-foreground) hover:text-(--color-primary) transition uppercase"
+                  className="flex items-center gap-2 px-5 py-3 text-[15px] font-medium tracking-wide uppercase hover:text-(--color-primary) transition"
                 >
                   {group.title}
-
                   <span
-                    className={`text-[10px] mt-px transition-transform duration-300 ${
+                    className={`text-[10px] transition-transform duration-300 ${
                       activeDropdown === group.title ? "rotate-180" : ""
                     }`}
                   >
@@ -79,14 +74,12 @@ const Navbar = () => {
                   </span>
                 </button>
 
-                {/* DROPDOWN (MATCH IMAGE STYLE) */}
                 <AnimatePresence>
                   {activeDropdown === group.title && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.25 }}
                       className="absolute left-0 top-full mt-2 w-72 bg-white border border-(--color-border) shadow-lg overflow-hidden"
                     >
                       {group.items.map((item, index) => (
@@ -99,7 +92,6 @@ const Navbar = () => {
                           <span className="uppercase">{item.name}</span>
                           <span>→</span>
 
-                          {/* divider */}
                           {index !== group.items.length - 1 && (
                             <div className="absolute left-6 right-6 bottom-0 h-px bg-[#eee]" />
                           )}
@@ -112,26 +104,23 @@ const Navbar = () => {
               </div>
             ))}
 
-            {/* CONTACT */}
             <NavLink
               to="/contact"
-              className="px-5 py-3 text-[15px] font-medium tracking-wide uppercase text-(--color-foreground) hover:text-(--color-primary) transition"
+              className="px-5 py-3 text-[15px] font-medium uppercase hover:text-(--color-primary) transition"
             >
               CONTACT US
             </NavLink>
 
           </div>
-
         </div>
 
-        {/* CTA */}
         <a
           href="https://wa.me/c/8131059543"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-(--color-primary) text-white px-8 h-24 flex items-center text-sm font-semibold uppercase tracking-wide hover:opacity-90 transition"
         >
-          Start
+          use solayo
         </a>
 
       </div>
@@ -151,9 +140,9 @@ const Navbar = () => {
               href="https://wa.me/c/8131059543"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-(--color-primary) text-white px-6 h-full flex items-center text-sm font-semibold uppercase tracking-wide"
+              className="bg-(--color-primary) text-white px-6 h-full flex items-center text-sm font-semibold uppercase"
             >
-              Start
+              use solayo
             </a>
 
             <button
@@ -176,8 +165,9 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="bg-(--color-background)"
+              className="bg-(--color-background) py-4"
             >
+
               {groupedLinks.map((group) => (
                 <div key={group.title} className="border-b border-[#ece7f2]">
 
@@ -186,7 +176,6 @@ const Navbar = () => {
                     className="w-full flex items-center justify-between px-6 py-6 text-left text-[16px] font-medium uppercase tracking-wide"
                   >
                     {group.title}
-
                     <span className={`${activeDropdown === group.title ? "rotate-180" : ""} transition`}>
                       ⌄
                     </span>
@@ -198,21 +187,30 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="pb-4"
+                        className="px-6 pb-6"
                       >
-                        {group.items.map((item) => (
-                          <NavLink
-                            key={item.path}
-                            to={item.path}
-                            onClick={() => {
-                              setOpen(false);
-                              setActiveDropdown(null);
-                            }}
-                            className="block px-10 py-4 text-[15px] text-(--color-foreground)"
-                          >
-                            {item.name}
-                          </NavLink>
-                        ))}
+                        <div className="w-full max-w-sm mx-auto bg-white border border-(--color-border) shadow-lg overflow-hidden">
+
+                          {group.items.map((item, index) => (
+                            <NavLink
+                              key={item.path}
+                              to={item.path}
+                              onClick={() => {
+                                setOpen(false);
+                                setActiveDropdown(null);
+                              }}
+                              className="relative flex items-center justify-between px-6 py-4 text-sm hover:bg-[#f7f4fb] transition"
+                            >
+                              <span className="uppercase">{item.name}</span>
+                              <span>→</span>
+
+                              {index !== group.items.length - 1 && (
+                                <div className="absolute left-6 right-6 bottom-0 h-px bg-[#eee]" />
+                              )}
+                            </NavLink>
+                          ))}
+
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -233,7 +231,6 @@ const Navbar = () => {
         </AnimatePresence>
 
       </div>
-
     </nav>
   );
 };
