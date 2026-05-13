@@ -61,45 +61,53 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
 
             {groupedLinks.map((group) => (
-              <div
-                key={group.title}
-                className="relative group"
-              >
+              <div key={group.title} className="relative">
 
-                <button className="flex items-center gap-2 px-5 py-3 text-[15px] font-medium tracking-wide text-(--color-foreground) hover:text-(--color-primary) transition uppercase">
-
+                {/* BUTTON */}
+                <button
+                  onClick={() => toggleDropdown(group.title)}
+                  className="flex items-center gap-2 px-5 py-3 text-[15px] font-medium tracking-wide text-(--color-foreground) hover:text-(--color-primary) transition uppercase"
+                >
                   {group.title}
 
-                  <span className="text-[10px] mt-px">
+                  <span
+                    className={`text-[10px] mt-px transition-transform duration-300 ${
+                      activeDropdown === group.title ? "rotate-180" : ""
+                    }`}
+                  >
                     ⌄
                   </span>
-
                 </button>
 
-                {/* Dropdown */}
-                <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {/* DROPDOWN (MATCH IMAGE STYLE) */}
+                <AnimatePresence>
+                  {activeDropdown === group.title && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="absolute left-0 top-full mt-2 w-72 bg-white border border-(--color-border) shadow-lg overflow-hidden"
+                    >
+                      {group.items.map((item, index) => (
+                        <NavLink
+                          key={item.path}
+                          to={item.path}
+                          onClick={() => setActiveDropdown(null)}
+                          className="relative flex items-center justify-between px-6 py-4 text-sm hover:bg-[#f7f4fb] transition"
+                        >
+                          <span className="uppercase">{item.name}</span>
+                          <span>→</span>
 
-                  <div className="w-60 rounded-3xl border border-(--color-border) bg-white shadow-xl p-3">
-
-                    {group.items.map((item) => (
-                      <NavLink
-                        key={item.path}
-                        to={item.path}
-                        className={({ isActive }) =>
-                          `block px-5 py-3 rounded-2xl text-sm transition ${
-                            isActive
-                              ? "bg-[#efe7fb] text-(--color-primary)"
-                              : "hover:bg-[#f7f4fb] text-(--color-foreground)"
-                          }`
-                        }
-                      >
-                        {item.name}
-                      </NavLink>
-                    ))}
-
-                  </div>
-
-                </div>
+                          {/* divider */}
+                          {index !== group.items.length - 1 && (
+                            <div className="absolute left-6 right-6 bottom-0 h-px bg-[#eee]" />
+                          )}
+                        </NavLink>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
               </div>
             ))}
@@ -131,25 +139,14 @@ const Navbar = () => {
       {/* ================= MOBILE ================= */}
       <div className="md:hidden">
 
-        {/* Top Bar */}
         <div className="flex items-center justify-between h-20 border-b border-[#ece7f2]">
 
-          {/* Logo */}
-          <NavLink
-            to="/"
-            className="pl-5"
-          >
-            <img
-              src={logo}
-              alt="Solayo logo"
-              className="h-8 w-auto object-contain"
-            />
+          <NavLink to="/" className="pl-5">
+            <img src={logo} alt="Solayo logo" className="h-8 w-auto object-contain" />
           </NavLink>
 
-          {/* Right */}
           <div className="flex items-center h-full">
 
-            {/* CTA */}
             <a
               href="https://wa.me/c/8131059543"
               target="_blank"
@@ -159,86 +156,43 @@ const Navbar = () => {
               Start
             </a>
 
-            {/* Menu Button */}
             <button
               onClick={() => setOpen(!open)}
               className="w-20 h-full flex items-center justify-center"
             >
-
               <div className="relative w-7 h-7">
-
-                <span
-                  className={`absolute left-0 top-1/2 w-7 h-0.5 bg-(--color-foreground) transition-all duration-300 ${
-                    open
-                      ? "rotate-45"
-                      : "-translate-y-2"
-                  }`}
-                />
-
-                <span
-                  className={`absolute left-0 top-1/2 w-7 h-0.5 bg-(--color-foreground) transition-all duration-300 ${
-                    open
-                      ? "opacity-0"
-                      : "opacity-100"
-                  }`}
-                />
-
-                <span
-                  className={`absolute left-0 top-1/2 w-7 h-0.5 bg-(--color-foreground) transition-all duration-300 ${
-                    open
-                      ? "-rotate-45"
-                      : "translate-y-2"
-                  }`}
-                />
-
+                <span className={`absolute left-0 top-1/2 w-7 h-0.5 bg-(--color-foreground) transition-all ${open ? "rotate-45" : "-translate-y-2"}`} />
+                <span className={`absolute left-0 top-1/2 w-7 h-0.5 bg-(--color-foreground) transition-all ${open ? "opacity-0" : "opacity-100"}`} />
+                <span className={`absolute left-0 top-1/2 w-7 h-0.5 bg-(--color-foreground) transition-all ${open ? "-rotate-45" : "translate-y-2"}`} />
               </div>
-
             </button>
 
           </div>
-
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
-
           {open && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
               className="bg-(--color-background)"
             >
-
-              {/* Dropdown Sections */}
               {groupedLinks.map((group) => (
-                <div
-                  key={group.title}
-                  className="border-b border-[#ece7f2]"
-                >
+                <div key={group.title} className="border-b border-[#ece7f2]">
 
                   <button
                     onClick={() => toggleDropdown(group.title)}
-                    className="w-full flex items-center justify-between px-6 py-6 text-left text-[16px] font-medium uppercase tracking-wide text-(--color-foreground)"
+                    className="w-full flex items-center justify-between px-6 py-6 text-left text-[16px] font-medium uppercase tracking-wide"
                   >
-
                     {group.title}
 
-                    <span
-                      className={`transition-transform duration-300 ${
-                        activeDropdown === group.title
-                          ? "rotate-180"
-                          : ""
-                      }`}
-                    >
+                    <span className={`${activeDropdown === group.title ? "rotate-180" : ""} transition`}>
                       ⌄
                     </span>
-
                   </button>
 
                   <AnimatePresence>
-
                     {activeDropdown === group.title && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
@@ -246,7 +200,6 @@ const Navbar = () => {
                         exit={{ opacity: 0, height: 0 }}
                         className="pb-4"
                       >
-
                         {group.items.map((item) => (
                           <NavLink
                             key={item.path}
@@ -255,38 +208,28 @@ const Navbar = () => {
                               setOpen(false);
                               setActiveDropdown(null);
                             }}
-                            className={({ isActive }) =>
-                              `block px-10 py-4 text-[15px] ${
-                                isActive
-                                  ? "text-(--color-primary)"
-                                  : "text-(--color-muted-foreground)"
-                              }`
-                            }
+                            className="block px-10 py-4 text-[15px] text-(--color-foreground)"
                           >
                             {item.name}
                           </NavLink>
                         ))}
-
                       </motion.div>
                     )}
-
                   </AnimatePresence>
 
                 </div>
               ))}
 
-              {/* CONTACT */}
               <NavLink
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="block px-6 py-6 text-[16px] font-medium uppercase tracking-wide text-(--color-foreground)"
+                className="block px-6 py-6 text-[16px] font-medium uppercase"
               >
                 CONTACT US
               </NavLink>
 
             </motion.div>
           )}
-
         </AnimatePresence>
 
       </div>
