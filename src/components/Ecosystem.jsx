@@ -64,21 +64,21 @@ const Ecosystem = () => {
         >
           <motion.p
             variants={fadeUp}
-            className="text-xs tracking-[0.25em] text-(--color-muted-foreground) mb-6"
+            className="text-[11px] tracking-[0.25em] uppercase text-(--color-muted-foreground) mb-5"
           >
             WHAT WE DO
           </motion.p>
 
           <motion.h2
             variants={fadeUp}
-            className="font-display text-[clamp(2.2rem,4vw,3.5rem)] leading-[1.15] text-(--color-foreground) max-w-3xl"
+            className="font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] text-(--color-foreground) max-w-3xl"
           >
             An integrated maternal care ecosystem.
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="mt-6 text-[17px] leading-[1.7] text-(--color-muted-foreground) max-w-2xl"
+            className="mt-5 text-[15px] md:text-[16px] leading-[1.7] text-(--color-muted-foreground) max-w-2xl"
           >
             Solayo Africa supports women from pregnancy to postpartum through three connected solutions.
           </motion.p>
@@ -93,31 +93,29 @@ const Ecosystem = () => {
           className="mt-14 grid md:grid-cols-3 gap-8"
         >
           {cards.map((item, i) => (
-            <motion.div
+            <motion.a
               key={i}
+              href={item.link}
               variants={cardAnim}
               whileHover={{ y: -10, scale: 1.03 }}
-              className="p-8 rounded-[24px] border bg-white/70 backdrop-blur transition"
+              className="group p-8 rounded-[28px] bg-(--color-primary) border border-white/10 transition shadow-sm hover:shadow-xl"
             >
-              <p className="text-xs tracking-[0.25em] text-(--color-primary) mb-4">
+              <p className="text-[11px] tracking-[0.25em] uppercase text-white/70 mb-4">
                 {item.tag}
               </p>
 
-              <h3 className="font-display text-xl text-(--color-foreground) mb-4">
+              <h3 className="font-display text-[26px] leading-[1.2] text-white mb-4">
                 {item.title}
               </h3>
 
-              <p className="text-[15px] leading-[1.7] text-(--color-muted-foreground) mb-6">
+              <p className="text-[15px] leading-[1.7] text-white/80 mb-8">
                 {item.desc}
               </p>
 
-              <a
-                href={item.link}
-                className="text-(--color-primary) text-sm font-medium hover:underline"
-              >
+              <div className="inline-flex items-center text-sm font-medium text-[#f4d77d] group-hover:translate-x-1 transition">
                 Learn more →
-              </a>
-            </motion.div>
+              </div>
+            </motion.a>
           ))}
         </motion.div>
       </div>
