@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
-import AboutPage from "./pages/AboutPage";
+import AboutPage from "./pages/AboutUsPage";
 import Health from "./pages/Health";
 import Wellness from "./pages/Wellness";
 import CommunitySection from "./pages/CommunitySection";

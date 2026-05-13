@@ -5,107 +5,91 @@ import logo from "../assets/Logo-P.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
-  const mainLinks = [
-    { name: "Home", path: "/" },
-    { name: "Health", path: "/health" },
-    { name: "Wellness", path: "/wellness" },
-    { name: "Blog", path: "/blog" },
-  ];
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const groupedLinks = [
     {
-      title: "Community",
+      title: "ABOUT US",
       items: [
+        { name: "About", path: "/about" },
         { name: "Community", path: "/community" },
-        { name: "Impact", path: "/impact" },
+        { name: "Blog", path: "/blog" },
       ],
     },
     {
-      title: "About",
+      title: "OUR WORK",
       items: [
-        { name: "About", path: "/about" },
+        { name: "Health", path: "/health" },
+        { name: "Wellness", path: "/wellness" },
+      ],
+    },
+    {
+      title: "GET INVOLVED",
+      items: [
+        { name: "Impact", path: "/impact" },
         { name: "Partners", path: "/partners" },
-        { name: "Contact", path: "/contact" },
       ],
     },
   ];
 
+  const toggleDropdown = (title) => {
+    setActiveDropdown(activeDropdown === title ? null : title);
+  };
+
   return (
-    <nav className="sticky top-0 z-50 border-b border-(--color-border) bg-background/90 backdrop-blur-lg">
+    <nav className="sticky top-0 z-50 border-b border-(--color-border) bg-white/95 backdrop-blur-md">
 
-      <div className="max-w-7xl mx-auto px-5 md:px-10">
+      {/* ================= DESKTOP ================= */}
+      <div className="hidden md:flex items-center justify-between px-10 lg:px-16 h-24">
 
-        {/* NAV CONTENT */}
-        <div className="h-18 flex items-center justify-between">
+        {/* LEFT */}
+        <div className="flex items-center">
 
-          {/* LOGO */}
-          <NavLink to="/" className="flex items-center shrink-0">
+          {/* Logo */}
+          <NavLink
+            to="/"
+            className="pr-8 mr-8 border-r border-[#ddd7e8] shrink-0"
+          >
             <img
               src={logo}
               alt="Solayo logo"
-              className="h-8 md:h-9 w-auto object-contain"
+              className="h-10 w-auto object-contain"
             />
           </NavLink>
 
-          {/* DESKTOP NAV */}
-          <ul className="hidden md:flex items-center gap-2 text-sm font-medium text-(--color-muted-foreground)">
+          {/* Nav Links */}
+          <div className="flex items-center gap-2">
 
-            {mainLinks.map((link) => (
-              <li key={link.path} className="relative">
-                <NavLink
-                  to={link.path}
-                  end={link.path === "/"}
-                  className={({ isActive }) =>
-                    `relative z-10 px-4 py-2 rounded-full transition ${
-                      isActive
-                        ? "text-(--color-primary)"
-                        : "hover:text-(--color-foreground)"
-                    }`
-                  }
-                >
-                  {({ isActive }) => (
-                    <>
-                      {isActive && (
-                        <motion.span
-                          layoutId="nav-pill"
-                          className="absolute inset-0 bg-[#efe7fb] rounded-full z-[-1]"
-                          transition={{
-                            type: "spring",
-                            stiffness: 500,
-                            damping: 35,
-                          }}
-                        />
-                      )}
+            {groupedLinks.map((group) => (
+              <div
+                key={group.title}
+                className="relative group"
+              >
 
-                      {link.name}
-                    </>
-                  )}
-                </NavLink>
-              </li>
-            ))}
+                <button className="flex items-center gap-2 px-5 py-3 text-[15px] font-medium tracking-wide text-(--color-foreground) hover:text-(--color-primary) transition uppercase">
 
-            {/* DROPDOWNS */}
-            {groupedLinks.map((group, index) => (
-              <li key={index} className="relative group">
-
-                <button className="px-4 py-2 rounded-full flex items-center gap-1 hover:text-(--color-foreground) transition">
                   {group.title}
-                  <span className="text-[10px] mt-px">⌄</span>
+
+                  <span className="text-[10px] mt-px">
+                    ⌄
+                  </span>
+
                 </button>
 
-                <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="w-56 rounded-3xl border border-(--color-border) bg-white shadow-xl p-3">
+                {/* Dropdown */}
+                <div className="absolute left-0 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+
+                  <div className="w-60 rounded-3xl border border-(--color-border) bg-white shadow-xl p-3">
 
                     {group.items.map((item) => (
                       <NavLink
                         key={item.path}
                         to={item.path}
                         className={({ isActive }) =>
-                          `block px-4 py-3 rounded-2xl text-sm transition ${
+                          `block px-5 py-3 rounded-2xl text-sm transition ${
                             isActive
                               ? "bg-[#efe7fb] text-(--color-primary)"
-                              : "hover:bg-[#f7f4fb] hover:text-(--color-foreground)"
+                              : "hover:bg-[#f7f4fb] text-(--color-foreground)"
                           }`
                         }
                       >
@@ -114,131 +98,198 @@ const Navbar = () => {
                     ))}
 
                   </div>
+
                 </div>
 
-              </li>
+              </div>
             ))}
 
-          </ul>
+            {/* CONTACT */}
+            <NavLink
+              to="/contact"
+              className="px-5 py-3 text-[15px] font-medium tracking-wide uppercase text-(--color-foreground) hover:text-(--color-primary) transition"
+            >
+              CONTACT US
+            </NavLink>
 
-          {/* CTA */}
-          <div className="hidden md:block">
+          </div>
+
+        </div>
+
+        {/* CTA */}
+        <a
+          href="https://wa.me/c/8131059543"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-(--color-primary) text-white px-8 h-24 flex items-center text-sm font-semibold uppercase tracking-wide hover:opacity-90 transition"
+        >
+          Start
+        </a>
+
+      </div>
+
+      {/* ================= MOBILE ================= */}
+      <div className="md:hidden">
+
+        {/* Top Bar */}
+        <div className="flex items-center justify-between h-20 border-b border-[#ece7f2]">
+
+          {/* Logo */}
+          <NavLink
+            to="/"
+            className="pl-5"
+          >
+            <img
+              src={logo}
+              alt="Solayo logo"
+              className="h-8 w-auto object-contain"
+            />
+          </NavLink>
+
+          {/* Right */}
+          <div className="flex items-center h-full">
+
+            {/* CTA */}
             <a
               href="https://wa.me/c/8131059543"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-(--color-primary) text-white px-5 py-2.5 rounded-full flex items-center gap-2 hover:opacity-90 transition text-sm font-medium"
+              className="bg-(--color-primary) text-white px-6 h-full flex items-center text-sm font-semibold uppercase tracking-wide"
             >
-              Start on WhatsApp →
+              Start
             </a>
-          </div>
 
-          {/* MOBILE TOGGLE */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden w-11 h-11 rounded-full border border-(--color-border) flex items-center justify-center bg-white"
-          >
-            <div className="flex flex-col gap-1">
-              <span
-                className={`w-5 h-0.5 bg-(--color-foreground) transition ${
-                  open ? "rotate-45 translate-y-1.5" : ""
-                }`}
-              />
-              <span
-                className={`w-5 h-0.5 bg-(--color-foreground) transition ${
-                  open ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`w-5 h-0.5 bg-(--color-foreground) transition ${
-                  open ? "-rotate-45 -translate-y-1.5" : ""
-                }`}
-              />
-            </div>
-          </button>
+            {/* Menu Button */}
+            <button
+              onClick={() => setOpen(!open)}
+              className="w-20 h-full flex items-center justify-center"
+            >
 
-        </div>
-      </div>
+              <div className="relative w-7 h-7">
 
-      {/* MOBILE MENU */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-(--color-border) bg-(--color-background)"
-          >
+                <span
+                  className={`absolute left-0 top-1/2 w-7 h-0.5 bg-(--color-foreground) transition-all duration-300 ${
+                    open
+                      ? "rotate-45"
+                      : "-translate-y-2"
+                  }`}
+                />
 
-            <div className="px-5 py-6 flex flex-col gap-6">
+                <span
+                  className={`absolute left-0 top-1/2 w-7 h-0.5 bg-(--color-foreground) transition-all duration-300 ${
+                    open
+                      ? "opacity-0"
+                      : "opacity-100"
+                  }`}
+                />
 
-              {/* MAIN LINKS */}
-              <div className="flex flex-col gap-2">
-                {mainLinks.map((link) => (
-                  <NavLink
-                    key={link.path}
-                    to={link.path}
-                    end={link.path === "/"}
-                    onClick={() => setOpen(false)}
-                    className={({ isActive }) =>
-                      `px-4 py-3 rounded-2xl text-sm font-medium transition ${
-                        isActive
-                          ? "bg-[#efe7fb] text-(--color-primary)"
-                          : "hover:bg-[#f7f4fb]"
-                      }`
-                    }
-                  >
-                    {link.name}
-                  </NavLink>
-                ))}
+                <span
+                  className={`absolute left-0 top-1/2 w-7 h-0.5 bg-(--color-foreground) transition-all duration-300 ${
+                    open
+                      ? "-rotate-45"
+                      : "translate-y-2"
+                  }`}
+                />
+
               </div>
 
-              {/* GROUPED LINKS */}
-              {groupedLinks.map((group, index) => (
-                <div key={index}>
+            </button>
 
-                  <p className="mb-3 px-2 text-[11px] uppercase tracking-[0.25em] text-(--color-muted-foreground)">
+          </div>
+
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+
+          {open && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-(--color-background)"
+            >
+
+              {/* Dropdown Sections */}
+              {groupedLinks.map((group) => (
+                <div
+                  key={group.title}
+                  className="border-b border-[#ece7f2]"
+                >
+
+                  <button
+                    onClick={() => toggleDropdown(group.title)}
+                    className="w-full flex items-center justify-between px-6 py-6 text-left text-[16px] font-medium uppercase tracking-wide text-(--color-foreground)"
+                  >
+
                     {group.title}
-                  </p>
 
-                  <div className="flex flex-col gap-2">
-                    {group.items.map((item) => (
-                      <NavLink
-                        key={item.path}
-                        to={item.path}
-                        onClick={() => setOpen(false)}
-                        className={({ isActive }) =>
-                          `px-4 py-3 rounded-2xl text-sm font-medium transition ${
-                            isActive
-                              ? "bg-[#efe7fb] text-(--color-primary)"
-                              : "hover:bg-[#f7f4fb]"
-                          }`
-                        }
+                    <span
+                      className={`transition-transform duration-300 ${
+                        activeDropdown === group.title
+                          ? "rotate-180"
+                          : ""
+                      }`}
+                    >
+                      ⌄
+                    </span>
+
+                  </button>
+
+                  <AnimatePresence>
+
+                    {activeDropdown === group.title && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="pb-4"
                       >
-                        {item.name}
-                      </NavLink>
-                    ))}
-                  </div>
+
+                        {group.items.map((item) => (
+                          <NavLink
+                            key={item.path}
+                            to={item.path}
+                            onClick={() => {
+                              setOpen(false);
+                              setActiveDropdown(null);
+                            }}
+                            className={({ isActive }) =>
+                              `block px-10 py-4 text-[15px] ${
+                                isActive
+                                  ? "text-(--color-primary)"
+                                  : "text-(--color-muted-foreground)"
+                              }`
+                            }
+                          >
+                            {item.name}
+                          </NavLink>
+                        ))}
+
+                      </motion.div>
+                    )}
+
+                  </AnimatePresence>
 
                 </div>
               ))}
 
-              {/* CTA */}
-              <a
-                href="https://wa.me/c/8131059543"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 bg-(--color-primary) text-white h-13 rounded-full flex items-center justify-center text-sm font-medium hover:opacity-90 transition"
+              {/* CONTACT */}
+              <NavLink
+                to="/contact"
+                onClick={() => setOpen(false)}
+                className="block px-6 py-6 text-[16px] font-medium uppercase tracking-wide text-(--color-foreground)"
               >
-                Start on WhatsApp →
-              </a>
+                CONTACT US
+              </NavLink>
 
-            </div>
+            </motion.div>
+          )}
 
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </AnimatePresence>
+
+      </div>
 
     </nav>
   );
