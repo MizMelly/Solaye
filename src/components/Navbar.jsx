@@ -30,6 +30,12 @@ const Navbar = () => {
         { name: "Partners", path: "/partners" },
       ],
     },
+    {
+     title: "STORIES",
+    items: [
+      { name: "Blog", path: "/blog" },
+    ],
+  },
   ];
 
   const toggleDropdown = (title) => {
@@ -37,7 +43,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-(--color-border) bg-white/95 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-(--color-border) bg-[#f8f5ef] backdrop-blur-md">
 
       {/* ================= DESKTOP ================= */}
       <div className="hidden md:flex items-center justify-between px-10 lg:px-16 h-24">
