@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/Logo-P.png";
 
 const Navbar = () => {
@@ -32,172 +32,213 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full px-6 md:px-12 py-4 flex items-center justify-between border-b border-(--color-border) sticky top-0 z-50 backdrop-blur bg-background/80">
+    <nav className="sticky top-0 z-50 border-b border-(--color-border) bg-background/90 backdrop-blur-lg">
 
-      {/* Logo */}
-      <NavLink to="/" className="flex items-center gap-2">
-        <img
-  src={logo}
-  alt="Solayo logo"
-  className="h-8 md:h-9 w-auto max-w-35 object-contain"
-/>
-      </NavLink>
+      <div className="max-w-7xl mx-auto px-5 md:px-10">
 
-      {/* Desktop Links */}
-      <ul className="hidden md:flex items-center gap-3 font-medium text-sm text-(--color-muted-foreground) relative">
+        {/* NAV CONTENT */}
+        <div className="h-18 flex items-center justify-between">
 
-        {/* Main Links */}
-        {mainLinks.map((link) => (
-          <li key={link.path} className="relative">
-            <NavLink
-              to={link.path}
-              end={link.path === "/"}
-              className={({ isActive }) =>
-                `relative z-10 px-4 py-2 rounded-full transition ${
-                  isActive
-                    ? "text-(--color-primary)"
-                    : "hover:text-(--color-foreground)"
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-pill"
-                      className="absolute inset-0 bg-[#EDE7F6] rounded-full z-[-1]"
-                      transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 35,
-                      }}
-                    />
-                  )}
+          {/* LOGO */}
+          <NavLink to="/" className="flex items-center shrink-0">
+            <img
+              src={logo}
+              alt="Solayo logo"
+              className="h-8 md:h-9 w-auto object-contain"
+            />
+          </NavLink>
 
-                  {link.name}
-                </>
-              )}
-            </NavLink>
-          </li>
-        ))}
+          {/* DESKTOP NAV */}
+          <ul className="hidden md:flex items-center gap-2 text-sm font-medium text-(--color-muted-foreground)">
 
-        {/* Dropdown Groups */}
-        {groupedLinks.map((group, index) => (
-          <li key={index} className="relative group">
-
-            <button className="px-4 py-2 rounded-full hover:text-(--color-foreground) transition flex items-center gap-1">
-              {group.title}
-              <span className="text-xs">⌄</span>
-            </button>
-
-            {/* Dropdown */}
-            <div className="absolute top-full left-0 mt-3 w-56 rounded-3xl border border-(--color-border) bg-white shadow-xl p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-
-              {group.items.map((item) => (
+            {mainLinks.map((link) => (
+              <li key={link.path} className="relative">
                 <NavLink
-                  key={item.path}
-                  to={item.path}
+                  to={link.path}
+                  end={link.path === "/"}
                   className={({ isActive }) =>
-                    `block px-4 py-3 rounded-2xl text-sm transition ${
+                    `relative z-10 px-4 py-2 rounded-full transition ${
                       isActive
-                        ? "bg-[#EDE7F6] text-(--color-primary)"
-                        : "hover:bg-[#f7f4fb] hover:text-(--color-foreground)"
+                        ? "text-(--color-primary)"
+                        : "hover:text-(--color-foreground)"
                     }`
                   }
                 >
-                  {item.name}
+                  {({ isActive }) => (
+                    <>
+                      {isActive && (
+                        <motion.span
+                          layoutId="nav-pill"
+                          className="absolute inset-0 bg-[#efe7fb] rounded-full z-[-1]"
+                          transition={{
+                            type: "spring",
+                            stiffness: 500,
+                            damping: 35,
+                          }}
+                        />
+                      )}
+
+                      {link.name}
+                    </>
+                  )}
                 </NavLink>
-              ))}
+              </li>
+            ))}
 
+            {/* DROPDOWNS */}
+            {groupedLinks.map((group, index) => (
+              <li key={index} className="relative group">
+
+                <button className="px-4 py-2 rounded-full flex items-center gap-1 hover:text-(--color-foreground) transition">
+                  {group.title}
+                  <span className="text-[10px] mt-px">⌄</span>
+                </button>
+
+                <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="w-56 rounded-3xl border border-(--color-border) bg-white shadow-xl p-3">
+
+                    {group.items.map((item) => (
+                      <NavLink
+                        key={item.path}
+                        to={item.path}
+                        className={({ isActive }) =>
+                          `block px-4 py-3 rounded-2xl text-sm transition ${
+                            isActive
+                              ? "bg-[#efe7fb] text-(--color-primary)"
+                              : "hover:bg-[#f7f4fb] hover:text-(--color-foreground)"
+                          }`
+                        }
+                      >
+                        {item.name}
+                      </NavLink>
+                    ))}
+
+                  </div>
+                </div>
+
+              </li>
+            ))}
+
+          </ul>
+
+          {/* CTA */}
+          <div className="hidden md:block">
+            <a
+              href="https://wa.me/c/8131059543"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-(--color-primary) text-white px-5 py-2.5 rounded-full flex items-center gap-2 hover:opacity-90 transition text-sm font-medium"
+            >
+              Start on WhatsApp →
+            </a>
+          </div>
+
+          {/* MOBILE TOGGLE */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden w-11 h-11 rounded-full border border-(--color-border) flex items-center justify-center bg-white"
+          >
+            <div className="flex flex-col gap-1">
+              <span
+                className={`w-5 h-0.5 bg-(--color-foreground) transition ${
+                  open ? "rotate-45 translate-y-1.5" : ""
+                }`}
+              />
+              <span
+                className={`w-5 h-0.5 bg-(--color-foreground) transition ${
+                  open ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`w-5 h-0.5 bg-(--color-foreground) transition ${
+                  open ? "-rotate-45 -translate-y-1.5" : ""
+                }`}
+              />
             </div>
-          </li>
-        ))}
+          </button>
 
-      </ul>
-
-      {/* CTA */}
-      <div className="hidden md:block">
-        <a
-          href="https://wa.me/c/8131059543"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-(--color-primary) text-white px-6 py-2 rounded-full flex items-center gap-2 hover:opacity-90 transition font-medium text-sm shadow-sm"
-        >
-          Start on WhatsApp →
-        </a>
+        </div>
       </div>
 
-      {/* Mobile Toggle */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="md:hidden flex flex-col gap-1"
-      >
-        <span className="w-6 h-0.5 bg-(--color-foreground)"></span>
-        <span className="w-6 h-0.5 bg-(--color-foreground)"></span>
-        <span className="w-6 h-0.5 bg-(--color-foreground)"></span>
-      </button>
+      {/* MOBILE MENU */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden border-t border-(--color-border) bg-(--color-background)"
+          >
 
-      {/* Mobile Menu */}
-      {open && (
-        <div className="absolute top-full left-0 w-full bg-(--color-background) border-b border-(--color-border) px-6 py-6 flex flex-col gap-5 md:hidden">
+            <div className="px-5 py-6 flex flex-col gap-6">
 
-          {/* Main Links */}
-          {mainLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              end={link.path === "/"}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                isActive
-                  ? "px-4 py-3 rounded-2xl bg-[#EDE7F6] text-(--color-primary)"
-                  : "px-4 py-3 rounded-2xl hover:bg-[#f7f4fb]"
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
-
-          {/* Grouped Links */}
-          {groupedLinks.map((group, index) => (
-            <div key={index} className="border-t border-(--color-border) pt-4">
-
-              <p className="px-4 mb-2 text-[11px] uppercase tracking-[0.25em] text-(--color-muted-foreground)">
-                {group.title}
-              </p>
-
+              {/* MAIN LINKS */}
               <div className="flex flex-col gap-2">
-                {group.items.map((item) => (
+                {mainLinks.map((link) => (
                   <NavLink
-                    key={item.path}
-                    to={item.path}
+                    key={link.path}
+                    to={link.path}
+                    end={link.path === "/"}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
-                      isActive
-                        ? "px-4 py-3 rounded-2xl bg-[#EDE7F6] text-(--color-primary)"
-                        : "px-4 py-3 rounded-2xl hover:bg-[#f7f4fb]"
+                      `px-4 py-3 rounded-2xl text-sm font-medium transition ${
+                        isActive
+                          ? "bg-[#efe7fb] text-(--color-primary)"
+                          : "hover:bg-[#f7f4fb]"
+                      }`
                     }
                   >
-                    {item.name}
+                    {link.name}
                   </NavLink>
                 ))}
               </div>
 
+              {/* GROUPED LINKS */}
+              {groupedLinks.map((group, index) => (
+                <div key={index}>
+
+                  <p className="mb-3 px-2 text-[11px] uppercase tracking-[0.25em] text-(--color-muted-foreground)">
+                    {group.title}
+                  </p>
+
+                  <div className="flex flex-col gap-2">
+                    {group.items.map((item) => (
+                      <NavLink
+                        key={item.path}
+                        to={item.path}
+                        onClick={() => setOpen(false)}
+                        className={({ isActive }) =>
+                          `px-4 py-3 rounded-2xl text-sm font-medium transition ${
+                            isActive
+                              ? "bg-[#efe7fb] text-(--color-primary)"
+                              : "hover:bg-[#f7f4fb]"
+                          }`
+                        }
+                      >
+                        {item.name}
+                      </NavLink>
+                    ))}
+                  </div>
+
+                </div>
+              ))}
+
+              {/* CTA */}
+              <a
+                href="https://wa.me/c/8131059543"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 bg-(--color-primary) text-white h-13 rounded-full flex items-center justify-center text-sm font-medium hover:opacity-90 transition"
+              >
+                Start on WhatsApp →
+              </a>
+
             </div>
-          ))}
 
-          {/* CTA */}
-          <a
-            href="https://wa.me/c/8131059543"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 bg-(--color-primary) text-white px-6 py-3 rounded-full flex items-center justify-center gap-2 font-medium text-sm hover:opacity-90 transition"
-          >
-            Start on WhatsApp →
-          </a>
-
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </nav>
   );
