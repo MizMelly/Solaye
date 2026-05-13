@@ -98,7 +98,7 @@ const Ecosystem = () => {
               href={item.link}
               variants={cardAnim}
               whileHover={{ y: -10, scale: 1.03 }}
-              className="group p-8 rounded-[28px] bg-(--color-primary) border border-white/10 transition shadow-sm hover:shadow-xl"
+              className="group p-8 bg-(--color-primary) border border-white/10 transition shadow-sm hover:shadow-xl"
             >
               <p className="text-[11px] tracking-[0.25em] uppercase text-white/70 mb-4">
                 {item.tag}

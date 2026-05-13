@@ -106,7 +106,7 @@ const TractionSection = () => {
               key={index}
               variants={cardAnim}
               whileHover={{ y: -8, scale: 1.03 }}
-              className="rounded-[26px] bg-[#e9e3ef] p-7"
+              className="bg-[#e9e3ef] p-7"
             >
               <h3 className="font-serif text-3xl md:text-4xl text-[#4b2e73] mb-2">
                 <CountUp

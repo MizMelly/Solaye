@@ -98,7 +98,7 @@ const WellnessSection = () => {
           >
             <Link
               to="/wellness"
-              className="inline-flex px-7 py-3.5 rounded-full bg-(--color-primary) text-white font-medium text-sm shadow-sm hover:opacity-90 transition"
+              className="inline-flex px-7 py-3.5 bg-(--color-primary) text-white font-medium text-sm shadow-sm hover:opacity-90 transition"
             >
               Shop wellness →
             </Link>
@@ -175,7 +175,7 @@ const WellnessSection = () => {
         transition={{ duration: 0.9, ease: "easeOut" }}
         className="mt-24"
       >
-        <div className="relative bg-(--color-primary) rounded-[40px] px-8 md:px-16 py-16 overflow-hidden">
+        <div className="relative bg-(--color-primary) px-8 md:px-16 py-16 overflow-hidden">
 
           {/* Background Circles */}
           <motion.div
@@ -224,7 +224,7 @@ const WellnessSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
-                className="bg-white text-(--color-foreground) px-7 py-3.5 rounded-full text-sm font-medium"
+                className="bg-white text-(--color-foreground) px-7 py-3.5 text-sm font-medium"
               >
                 Get started on WhatsApp
               </motion.a>
@@ -232,7 +232,7 @@ const WellnessSection = () => {
               <motion.div whileHover={{ scale: 1.05 }}>
                 <Link
                   to="/about"
-                  className="inline-flex border border-white/40 text-white px-7 py-3.5 rounded-full text-sm font-medium"
+                  className="inline-flex border border-white/40 text-white px-7 py-3.5 text-sm font-medium"
                 >
                   About Solayo
                 </Link>

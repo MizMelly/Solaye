@@ -15,89 +15,85 @@ const Hero = () => {
           className="max-w-lg"
         >
 
-          {/* Heading */}
-  <h1 className="font-display text-3xl md:text-5xl leading-[1.05] text-(--color-foreground)">
-  Safe delivery.{" "}
-  <span className="italic text-(--color-primary)">
-    Smarter
-  </span>
-  <br />
-  maternal care.
-</h1>
+          <h1 className="font-display text-3xl md:text-5xl leading-[1.05] text-(--color-foreground)">
+            Safe delivery.{" "}
+            <span className="italic text-(--color-primary)">
+              Smarter
+            </span>
+            <br />
+            maternal care.
+          </h1>
 
-          {/* Text */}
           <p className="mt-7 text-[18px] leading-[1.8] text-(--color-muted-foreground)">
             AI-powered health support, trusted wellness products, and community
             care for every stage of motherhood built for African women, on the
             platforms they already use.
           </p>
 
-         {/* Buttons */}
-<div className="mt-10 flex flex-wrap items-center gap-4">
+          {/* Buttons (SQUARE) */}
+          <div className="mt-10 flex flex-wrap items-center gap-4">
 
-  <a
-    href="https://wa.me/c/8131059543"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center justify-center rounded-full bg-(--color-primary) px-7 py-3.5 text-sm font-medium text-white shadow-sm hover:opacity-90 transition"
-  >
-    Get started on WhatsApp →
-  </a>
+            <a
+              href="https://wa.me/c/8131059543"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-(--color-primary) px-7 py-3.5 text-sm font-medium text-white shadow-sm hover:opacity-90 transition"
+            >
+              Get started on WhatsApp →
+            </a>
 
-  <a
-    href="/health"
-    className="inline-flex items-center justify-center rounded-full border border-(--color-border) bg-white px-7 py-3.5 text-sm font-medium text-(--color-foreground) hover:bg-(--color-muted) transition"
-  >
-    Explore Solayo Health
-  </a>
+            <a
+              href="/health"
+              className="inline-flex items-center justify-center border border-(--color-border) bg-white px-7 py-3.5 text-sm font-medium text-(--color-foreground) hover:bg-(--color-muted) transition"
+            >
+              Explore Solayo Health
+            </a>
 
-</div>
+          </div>
         </motion.div>
 
         {/* RIGHT */}
         <motion.div
-  initial={{ opacity: 0, scale: 0.95 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 1.4 }}
-  className="relative flex justify-center"
->
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.4 }}
+          className="relative flex justify-center"
+        >
 
-  {/* FRAME WRAPPER (controls overall size) */}
-  <div className="relative w-90 md:w-105 h-120 md:h-140">
+          <div className="relative w-90 md:w-105 h-120 md:h-140">
 
-    {/* Outer light frame */}
-    <div className="absolute inset-0 bg-[#E9E3F5] rounded-[40px]" />
+            {/* Outer frame */}
+            <div className="absolute inset-0 bg-[#E9E3F5]" />
 
-    {/* Inner purple frame */}
-    <div className="absolute inset-4.5 bg-[#D6C7F5] rounded-[36px]" />
+            {/* Inner frame */}
+            <div className="absolute inset-4.5 bg-[#D6C7F5]" />
 
-    {/* Yellow circle (bottom-left) */}
-    <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-[#F4C542] rounded-full z-0" />
+            {/* Circles (now squared removed OR can be squares too) */}
+            <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-[#F4C542]" />
+            <div className="absolute top-4 right-4 w-20 h-20 bg-[#CBB6F5]" />
 
-    {/* Purple circle (top-right) */}
-    <div className="absolute top-4 right-4 w-20 h-20 bg-[#CBB6F5] rounded-full z-0" />
+            {/* Image */}
+            <div className="absolute inset-9 bg-[#f3e7d0] p-3 shadow-xl z-10">
+              <img
+                src={heroImg}
+                alt="Pregnant woman"
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-    {/* Image card */}
-    <div className="absolute inset-9 bg-[#f3e7d0] rounded-[28px] p-3 shadow-xl z-10">
-      <img
-        src={heroImg}
-        alt="Pregnant woman"
-        className="w-full h-full object-cover rounded-2xl"
-      />
-    </div>
+            {/* Chat bubble */}
+            <div className="absolute bottom-6 right-2 bg-white shadow-xl px-4 py-3 w-60 text-sm z-20">
+              <p className="text-xs text-gray-400 mb-1">
+                Susan · Solayo
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                "How are you feeling today, Mama? Any cravings or worries I can help with?"
+              </p>
+            </div>
 
-    {/* Chat bubble */}
-    <div className="absolute bottom-6 right-2 bg-white rounded-2xl shadow-xl px-4 py-3 w-60 text-sm z-20">
-      <p className="text-xs text-gray-400 mb-1">
-        Susan · Solayo
-      </p>
-      <p className="text-gray-700 leading-relaxed">
-        "How are you feeling today, Mama? Any cravings or worries I can help with?"
-      </p>
-    </div>
+          </div>
+        </motion.div>
 
-  </div>
-</motion.div>
       </div>
     </section>
   );

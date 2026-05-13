@@ -54,7 +54,7 @@ const HowItWorksSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.15, duration: 0.6 }}
               viewport={{ once: true }}
-              className="flex items-start gap-6 p-6 md:p-7 rounded-[28px] border border-(--color-border) bg-white/60 backdrop-blur-sm"
+              className="flex items-start gap-6 p-6 md:p-7 border border-(--color-border) bg-white/60 backdrop-blur-sm"
             >
               {/* Number */}
               <span className="font-display text-2xl text-(--color-primary)">
