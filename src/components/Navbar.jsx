@@ -13,7 +13,6 @@ const Navbar = () => {
       items: [
         { name: "About", path: "/about" },
         { name: "Community", path: "/community" },
-        { name: "Blog", path: "/blog" },
       ],
     },
     {
