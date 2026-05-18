@@ -3,7 +3,7 @@ import Ecosystem from "../components/Ecosystem";
 import HowItWorksSection from "../components/HowItWorksSection";
 import TractionSection from "../components/TractionSection";
 import WellnessSection from "../components/WellnessSection";
-import BlogHighlights from "../components/BlogHighlights";
+
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
             <HowItWorksSection />
         <TractionSection />
         <WellnessSection />
-        <BlogHighlights />
+  
      
     </div>
   );

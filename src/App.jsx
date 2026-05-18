@@ -14,7 +14,8 @@ import PartnersSection from "./pages/PartnersSection";
 import ContactSection from "./pages/ContactSection";
 
 import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
+import BlogPost from "./pages/CreateBlog";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         {/* BLOG ROUTES */}
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
 
       <Footer />
